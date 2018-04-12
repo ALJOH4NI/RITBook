@@ -1,0 +1,6 @@
+framework module Pods_RITBook {
+  umbrella header "Pods-RITBook-umbrella.h"
+
+  export *
+  module * { export * }
+}
