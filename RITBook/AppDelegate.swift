@@ -9,10 +9,9 @@ import UIKit
 import Firebase
 import UserNotifications
 import FirebaseInstanceID
-import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
@@ -29,11 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-    
-    // The callback to handle data message received via FCM for devices running iOS 10 or above.
-    func application(received remoteMessage: MessagingRemoteMessage) {
-        print(remoteMessage.appData)
-    }
+   
     
 
     func applicationWillResignActive(_ application: UIApplication) {

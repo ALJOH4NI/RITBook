@@ -7,7 +7,5 @@ target 'RITBook' do
 	pod 'Firebase/Storage'
   	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
-	pod 'JSQMessagesViewController'
 	pod 'Firebase/Database’
-	pod 'Firebase/Messaging’
  end
