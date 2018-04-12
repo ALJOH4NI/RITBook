@@ -30,45 +30,45 @@ class LoginVC: UIViewController {
         } else {
             
             
-            //getting the user's infromation.
-            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-                //var users = [user]() // I need to know more about this.
-                
-                print("snapshot.children is \(snapshot.children)")
-                
-                for user in snapshot.children {
-                    let snap = user as! DataSnapshot
-                    //   let key = snap.key
-                    let value = snap.value as! [String:AnyObject]
-                    
-                    if value["password"]?.value == self.password.text! && value["email"]?.value == self.email.text! {
-                        
-                        let alert = UIAlertController(title: "Sucessfual !!", message: "You just create a new account =)", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
-                            // transfer the use to the login page.
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                            self.present(vc!, animated: true, completion: nil)
-                        }
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true, completion: nil)
-                        
-                    } else {
-                        
-                        let alert = UIAlertController(title: "Wrong !!", message: "Email or Password wrong", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
-                            // transfer the use to the login page.
-                           
-                        }
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true, completion: nil)
-    
-                    } // inner else
-                    
-                    
-//                    print(value["name"]!)
-                }// for loop
-        
-            }) // end of observeSingleEvent
+//            //getting the user's infromation.
+//            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+//                //var users = [user]() // I need to know more about this.
+//
+//                print("snapshot.children is \(snapshot.children)")
+//
+//                for user in snapshot.children {
+//                    let snap = user as! DataSnapshot
+//                    //   let key = snap.key
+//                    let value = snap.value as! [String:AnyObject]
+//
+//                    if value["password"]?.value == self.password.text! && value["email"]?.value == self.email.text! {
+//
+//                        let alert = UIAlertController(title: "Sucessfual !!", message: "You just create a new account =)", preferredStyle: .alert)
+//                        let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
+//                            // transfer the use to the login page.
+//                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Main")
+//                            self.present(vc!, animated: true, completion: nil)
+//                        }
+//                        alert.addAction(okAction)
+//                        self.present(alert, animated: true, completion: nil)
+//
+//                    } else {
+//
+//                        let alert = UIAlertController(title: "Wrong !!", message: "Email or Password wrong", preferredStyle: .alert)
+//                        let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
+//                            // transfer the use to the login page.
+//
+//                        }
+//                        alert.addAction(okAction)
+//                        self.present(alert, animated: true, completion: nil)
+//
+//                    } // inner else
+//
+//
+////                    print(value["name"]!)
+//                }// for loop
+//
+//            }) // end of observeSingleEvent
 
             
         } //else
