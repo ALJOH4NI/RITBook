@@ -37,7 +37,6 @@
 		0BBFF0BA31D13FEDBE0AF7CE /* Pods-RITBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.release.xcconfig"; sourceTree = "<group>"; };
 		191DAF86C5C63CBCBFAEA9DF /* Pods-RITBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.debug.xcconfig"; sourceTree = "<group>"; };
 		979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RITBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E23378BF206C50D500731661 /* RITBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RITBook.entitlements; sourceTree = "<group>"; };
 		E2680B2A205B05F5007758E4 /* RITBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RITBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2680B2D205B05F5007758E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2680B32205B05F5007758E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,7 +123,6 @@
 				E2680B36205B05F5007758E4 /* LaunchScreen.storyboard */,
 				E2680B3F205B0647007758E4 /* GoogleService-Info.plist */,
 				E2680B39205B05F5007758E4 /* Info.plist */,
-				E23378BF206C50D500731661 /* RITBook.entitlements */,
 			);
 			path = RITBook;
 			sourceTree = "<group>";
