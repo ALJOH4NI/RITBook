@@ -394,13 +394,13 @@
         <!--Add-->
         <scene sceneID="1yT-eQ-K2O">
             <objects>
-                <viewController id="3Gg-IB-ulT" sceneMemberID="viewController">
+                <viewController id="3Gg-IB-ulT" customClass="Add_booksVC" customModule="RITBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hmz-iY-EiW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SS7-Sr-F3h">
-                                <rect key="frame" x="0.0" y="29" width="375" height="251"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="236"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="book name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yjj-I8-2Bf">
@@ -430,7 +430,19 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="openCameraButton:" destination="3Gg-IB-ulT" eventType="touchUpInside" id="kKH-Xy-wVe"/>
+                                </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S69-9Q-ndT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Upload Book" id="xTo-ak-asX">
+                                        <barButtonItem key="rightBarButtonItem" title="Psot" id="Y29-zQ-GJe"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="bm9-Ds-gBA"/>
@@ -438,6 +450,9 @@
                     <tabBarItem key="tabBarItem" title="Add" image="icons8-add-new-30.png" id="beb-Bj-YeL">
                         <color key="badgeColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="imagePicked" destination="SS7-Sr-F3h" id="49N-Vh-tjB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZo-lK-peu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
