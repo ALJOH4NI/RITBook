@@ -400,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SS7-Sr-F3h">
-                                <rect key="frame" x="0.0" y="44" width="375" height="236"/>
+                                <rect key="frame" x="16" y="64" width="343" height="214"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="book name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yjj-I8-2Bf">
@@ -431,7 +431,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="openCameraButton:" destination="3Gg-IB-ulT" eventType="touchUpInside" id="kKH-Xy-wVe"/>
+                                    <action selector="actionSheet:" destination="3Gg-IB-ulT" eventType="touchUpInside" id="nwi-8C-Yao"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S69-9Q-ndT">
@@ -451,7 +451,7 @@
                         <color key="badgeColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="imagePicked" destination="SS7-Sr-F3h" id="49N-Vh-tjB"/>
+                        <outlet property="imagePicked" destination="SS7-Sr-F3h" id="Rpl-he-isJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZo-lK-peu" userLabel="First Responder" sceneMemberID="firstResponder"/>

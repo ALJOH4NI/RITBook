@@ -10,8 +10,11 @@ import UIKit
 class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var imagePicked: UIImageView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
         // Do any additional setup after loading the view.
     }
@@ -23,16 +26,15 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
 
 
-    @IBAction func openCameraButton(_ sender: Any) {
+    @IBAction func actionSheet(_ sender: Any) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
         // 2
-        let deleteAction = UIAlertAction(title: "Camera", style: .default, handler: {
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.camera()
           //  println("File Deleted")
         })
-        let saveAction = UIAlertAction(title: "Photo Library", style: .default, handler: {
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.photoLibrary()
             //println("File Saved")
@@ -46,8 +48,8 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         
         
         // 4
-        optionMenu.addAction(deleteAction)
-        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(libraryAction)
         optionMenu.addAction(cancelAction)
         
         // 5
@@ -55,16 +57,12 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
 
     }
     
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imagePicked.image = image
-       // dismiss(animated:true, completion: nil)
-    }
+    
     func camera()
     {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let myPickerController = UIImagePickerController()
-            myPickerController.delegate = self;
+            myPickerController.delegate = self
             myPickerController.sourceType = .camera
             self.present(myPickerController, animated: true, completion: nil)
         }
@@ -75,11 +73,25 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let myPickerController = UIImagePickerController()
-            myPickerController.delegate = self;
+            myPickerController.delegate = self
             myPickerController.sourceType = .photoLibrary
             self.present(myPickerController, animated: true, completion: nil)
         }
     }
+    
+        @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+          imagePicked.contentMode = .scaleToFill
+          imagePicked.image = image
+        }
+       dismiss(animated:true, completion: nil)
+    }
+    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+   
     /*
     // MARK: - Navigation
 
