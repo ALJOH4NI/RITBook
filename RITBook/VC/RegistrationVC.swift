@@ -31,18 +31,23 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
                 } else {
                    
                     // adding new user.
-                    ref = Database.database().reference()
-                    ref.child("users").childByAutoId().setValue(["name":name.text ,"password": password.text,"email": email.text])
                     
-                    let alert = UIAlertController(title: "Sucessfual !!", message: "You just create a new account =)", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
-                        // transfer the use to the login page.
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                        self.present(vc!, animated: true, completion: nil)
-                    }
-                    alert.addAction(okAction)
-                    present(alert, animated: true, completion: nil)
- 
+                    
+                    Auth.auth().createUser(withEmail: email.text!, password: password.text!){(user,Error) in
+                        
+                        if user != nil {
+                            self.ref = Database.database().reference() // root refernace
+                            self.ref.child("users").childByAutoId().setValue(["name":self.name.text ,"password": self.password.text,"email": self.email.text])
+                        let alert = UIAlertController(title: "Sucessfual !!", message: "You just create a new account =)", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
+                            // transfer the use to the login page.
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                            self.present(vc!, animated: true, completion: nil)
+                        }
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                        } // if
+                    } // createUser
                 }//else
         } // end of the method
    

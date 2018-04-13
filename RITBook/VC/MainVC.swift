@@ -25,6 +25,21 @@ class MainVC: UIViewController {
 //    } //end of the method
     
     
+//
+//    if let user = Auth.auth().currentUser {
+//        let rootRef = Database.database().reference()
+//        let userRef = rootRef.child("users").child(user.uid)
+//
+//        // 4 read from database with userRef
+//        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            // 2 handle snapshot containing data
+//
+//
+//        })
+//    }
+//    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
