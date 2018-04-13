@@ -14,8 +14,6 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-
         // Do any additional setup after loading the view.
     }
 
