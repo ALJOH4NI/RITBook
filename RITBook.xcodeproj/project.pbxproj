@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FB1DFB3208020D5001B951E /* Add_booksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1DFB2208020D5001B951E /* Add_booksVC.swift */; };
 		CB50AA0195D4C21F76B4B7BD /* Pods_RITBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */; };
 		E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B2D205B05F5007758E4 /* AppDelegate.swift */; };
 		E2680B33205B05F5007758E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2680B31205B05F5007758E4 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		0BBFF0BA31D13FEDBE0AF7CE /* Pods-RITBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.release.xcconfig"; sourceTree = "<group>"; };
 		191DAF86C5C63CBCBFAEA9DF /* Pods-RITBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.debug.xcconfig"; sourceTree = "<group>"; };
+		8FB1DFB2208020D5001B951E /* Add_booksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_booksVC.swift; sourceTree = "<group>"; };
 		979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RITBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2680B2A205B05F5007758E4 /* RITBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RITBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2680B2D205B05F5007758E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				E2680B45205B193D007758E4 /* LoginVC.swift */,
 				E2680B47205B3321007758E4 /* MainVC.swift */,
 				E28BD18A207FD13A00EAA321 /* ProfileVC.swift */,
+				8FB1DFB2208020D5001B951E /* Add_booksVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,
 				E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */,
+				8FB1DFB3208020D5001B951E /* Add_booksVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +460,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -475,7 +479,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
