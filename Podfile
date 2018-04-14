@@ -7,5 +7,6 @@ target 'RITBook' do
 	pod 'Firebase/Storage'
   	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
-	pod 'Firebase/Database’
+	pod 'Firebase/Database'
+	pod 'Kingfisher'
  end
