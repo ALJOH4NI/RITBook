@@ -28,9 +28,9 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical //.horizontal
         layout.itemSize = cellSize
-        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        layout.minimumLineSpacing = 1.0
-        layout.minimumInteritemSpacing = 1.0
+        layout.sectionInset = UIEdgeInsets(top: 100, left: 1, bottom: 1, right: 1)
+        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 15 
         collectionView?.setCollectionViewLayout(layout, animated: true)
         collectionView?.reloadData()
         // Do any additional setup after loading the view.
@@ -50,7 +50,18 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     // MARK: UICollectionViewDataSource
 
-  
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if (kind == UICollectionElementKindSectionHeader) {
+            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
+        
+    }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -72,6 +83,11 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     // MARK: UICollectionViewDelegate
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+        
+        print(indexPath.row)
+    }
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {

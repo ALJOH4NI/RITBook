@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Udg-HZ-DDu">
-                    <rect key="frame" x="0.0" y="0.0" width="487" height="157"/>
+                    <rect key="frame" x="0.0" y="15" width="487" height="142"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BOOk TITILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMC-y1-6lf">
                     <rect key="frame" x="13" y="165" width="465" height="21"/>
@@ -74,14 +74,21 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9OF-Q8-sff" secondAttribute="bottom" constant="11" id="TAq-wh-zAW"/>
                 <constraint firstItem="kKw-WX-hFi" firstAttribute="top" secondItem="kMC-y1-6lf" secondAttribute="bottom" constant="8" symbolic="YES" id="aGf-h1-9BL"/>
                 <constraint firstItem="kKw-WX-hFi" firstAttribute="leading" secondItem="zfX-hU-eNW" secondAttribute="leading" id="ao8-lA-JGa"/>
-                <constraint firstItem="Udg-HZ-DDu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="lVv-bY-rIe"/>
+                <constraint firstItem="Udg-HZ-DDu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="lVv-bY-rIe"/>
                 <constraint firstItem="Udg-HZ-DDu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pBn-o3-b5P"/>
                 <constraint firstItem="zfX-hU-eNW" firstAttribute="trailing" secondItem="9OF-Q8-sff" secondAttribute="trailing" id="qgy-6F-K86"/>
                 <constraint firstItem="kMC-y1-6lf" firstAttribute="top" secondItem="Udg-HZ-DDu" secondAttribute="bottom" constant="8" symbolic="YES" id="zTW-fK-qo5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139.5" y="-128.5"/>
+            <connections>
+                <outlet property="bookDescLabel" destination="kKw-WX-hFi" id="d3G-Zf-cby"/>
+                <outlet property="bookImage" destination="Udg-HZ-DDu" id="UXm-Tw-Fz2"/>
+                <outlet property="bookPriceLabel" destination="9OF-Q8-sff" id="EJO-fN-oed"/>
+                <outlet property="bookTitleLabel" destination="kMC-y1-6lf" id="NJw-pD-rj7"/>
+                <outlet property="deptLabel" destination="zfX-hU-eNW" id="t1A-ew-awF"/>
+            </connections>
+            <point key="canvasLocation" x="-141" y="-158"/>
         </view>
     </objects>
     <resources>
