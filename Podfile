@@ -8,6 +8,7 @@ target 'RITBook' do
   	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
-	pod 'Kingfisher'
-	pod 'KeyboardAvoidingView'
+    pod 'IHKeyboardAvoiding'
+    pod 'Kingfisher'
+
  end

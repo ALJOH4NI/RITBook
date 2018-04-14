@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "KeyboardAvoidingViewLoader.h"
 
-FOUNDATION_EXPORT double KeyboardAvoidingViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char KeyboardAvoidingViewVersionString[];
+FOUNDATION_EXPORT double IHKeyboardAvoidingVersionNumber;
+FOUNDATION_EXPORT const unsigned char IHKeyboardAvoidingVersionString[];
 

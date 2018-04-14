@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+struct dept {
+    let id : String
+    let name:String
+}
 struct Book {
     let bookTitle: String?
     let bookDescription: String?

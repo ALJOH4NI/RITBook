@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var books:[Book] = []
+    var depts:[dept] = []
     var ref: DatabaseReference!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -34,6 +35,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         books.append(abook)
         
          FirebaseApp.configure()
+        ref = Database.database().reference()
+        
+        ref.child("collages").observeSingleEvent(of: .value) { (snap) in
+
+            for  de in snap.children{
+                let snap = de as! DataSnapshot
+                let value = snap.value as? [String:AnyObject]
+                self.depts.append(dept(id: snap.key, name: value!["name"]! as! String))
+
+            }
+        }
         return true
     }
     

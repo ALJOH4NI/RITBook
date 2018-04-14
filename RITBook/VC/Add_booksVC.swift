@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IHKeyboardAvoiding
 
 extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -13,15 +14,15 @@ extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return applicationDelegate.depts.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "pickerView"
+        return applicationDelegate.depts[row].name
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        print(row)
+        print(applicationDelegate.depts[row])
     }
     
     
@@ -32,11 +33,22 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     @IBOutlet weak var depTextField: UITextField!
     
+    @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet var deptPicker: UIPickerView!
+    
+    
+    @IBAction func dissmisKeyPad(_ sender: Any) {
+        
+        self.view.endEditing(true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        KeyboardAvoiding.padding = -50
+       KeyboardAvoiding.avoidingView = self.view
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(actionSheet(_:)))
         imagePicked.isUserInteractionEnabled = true

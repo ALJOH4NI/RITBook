@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		82A541CA2081A218001AFCB1 /* addphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A541C92081A218001AFCB1 /* addphoto.png */; };
 		82E8D92020816CC400120002 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8D91F20816CC400120002 /* BookVC.swift */; };
 		82E8D92220816D0600120002 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8D92120816D0600120002 /* BookCell.swift */; };
 		82E8D9242081703000120002 /* bookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E8D9232081703000120002 /* bookCell.xib */; };
@@ -43,7 +42,6 @@
 /* Begin PBXFileReference section */
 		0BBFF0BA31D13FEDBE0AF7CE /* Pods-RITBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.release.xcconfig"; sourceTree = "<group>"; };
 		191DAF86C5C63CBCBFAEA9DF /* Pods-RITBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.debug.xcconfig"; sourceTree = "<group>"; };
-		82A541C92081A218001AFCB1 /* addphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addphoto.png; sourceTree = "<group>"; };
 		82E8D91F20816CC400120002 /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
 		82E8D92120816D0600120002 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		82E8D9232081703000120002 /* bookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookCell.xib; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 		E28BD169207F02F400EAA321 /* pics */ = {
 			isa = PBXGroup;
 			children = (
-				82A541C92081A218001AFCB1 /* addphoto.png */,
 				E28BD16E207F032400EAA321 /* icons8-add-new-30.png */,
 				E28BD171207F032500EAA321 /* icons8-close-window-30.png */,
 				E28BD174207F032600EAA321 /* icons8-course-30.png */,
@@ -216,7 +213,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				TargetAttributes = {
 					E2680B29205B05F5007758E4 = {
 						CreatedOnToolsVersion = 9.2;
@@ -262,7 +259,6 @@
 				E28BD180207F032600EAA321 /* icons8-login-30.png in Resources */,
 				E28BD17B207F032600EAA321 /* placeholder-pserson.png in Resources */,
 				E28BD185207F032600EAA321 /* icons8-menu-30.png in Resources */,
-				82A541CA2081A218001AFCB1 /* addphoto.png in Resources */,
 				E28BD179207F032600EAA321 /* icons8-settings-30.png in Resources */,
 				E28BD182207F032600EAA321 /* icons8-course-30.png in Resources */,
 				E2680B35205B05F5007758E4 /* Assets.xcassets in Resources */,
@@ -285,20 +281,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RITBook/Pods-RITBook-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/APExtensions/APExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/KeyboardAvoidingView/KeyboardAvoidingView.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APExtensions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardAvoidingView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -382,6 +376,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -389,6 +384,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -439,6 +435,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -446,6 +443,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

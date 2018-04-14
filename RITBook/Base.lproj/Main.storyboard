@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="50P-1l-nnW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="50P-1l-nnW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Thin</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Account -->
         <scene sceneID="I8E-YP-XK4">
@@ -384,7 +376,7 @@
                                 <rect key="frame" x="84" y="351" width="281" height="174"/>
                                 <color key="backgroundColor" red="0.87453263998031616" green="0.87451624870300293" blue="0.87452733516693115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="6"/>
@@ -411,7 +403,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
@@ -435,6 +427,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="S69-9Q-ndT" firstAttribute="leading" secondItem="bm9-Ds-gBA" secondAttribute="leading" id="1m5-iz-pmQ"/>
                             <constraint firstItem="bm9-Ds-gBA" firstAttribute="trailing" secondItem="mzZ-Xh-R47" secondAttribute="trailing" constant="6.5" id="2vV-hF-IzE"/>
@@ -460,6 +453,9 @@
                             <constraint firstItem="bm9-Ds-gBA" firstAttribute="trailing" secondItem="SS7-Sr-F3h" secondAttribute="trailing" constant="10" id="xbg-27-bHB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bm9-Ds-gBA"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Q0P-VI-MxX" appends="YES" id="LrM-Z9-ixd"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="icons8-add-new-30.png" id="beb-Bj-YeL">
                         <color key="badgeColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -468,6 +464,7 @@
                         <outlet property="depTextField" destination="UYM-HZ-Bel" id="eRn-pq-PpU"/>
                         <outlet property="deptPicker" destination="tQ8-CK-XPb" id="e5h-7m-3Tf"/>
                         <outlet property="imagePicked" destination="SS7-Sr-F3h" id="Rpl-he-isJ"/>
+                        <outlet property="priceTextField" destination="mzZ-Xh-R47" id="GU6-oE-fvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZo-lK-peu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,6 +472,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="359" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </pickerView>
+                <tapGestureRecognizer id="Q0P-VI-MxX">
+                    <connections>
+                        <action selector="dissmisKeyPad:" destination="3Gg-IB-ulT" id="DYR-eR-2Dz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-478" y="2015"/>
         </scene>
