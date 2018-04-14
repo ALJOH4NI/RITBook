@@ -26,6 +26,12 @@ class BookCell: UICollectionViewCell {
     
     func setUP(book:Book)  {
         
+        bookTitleLabel.text = book.bookTitle
+        bookDescLabel.text = book.bookDescription
+        deptLabel.text = book.collage
+        bookPriceLabel.text = "\(String(describing: book.bookPrice!))"
+
+        
         
     }
 }

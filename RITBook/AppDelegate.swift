@@ -10,6 +10,7 @@ import Firebase
 import UserNotifications
 import FirebaseInstanceID
 
+let applicationDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,8 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
+       let auser = user(name: "khalid",
+             email: "vb.95@kahs.com")
+        let abook = Book(bookTitle: "jhagfhsgd jsdhfd",
+                         bookDescription: "jfd jhdfjhd jhdfjhd",
+                         bookLink: "gsdhsg",
+                         bookPrice: 19.99,
+                         collage: "khalid ",
+                         userObj: auser)
         
-        
+        books.append(abook)
         
          FirebaseApp.configure()
         return true

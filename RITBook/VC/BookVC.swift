@@ -70,12 +70,12 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 5
+        return applicationDelegate.books.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookCell
-    
+            cell.setUP(book: applicationDelegate.books[indexPath.row])
         // Configure the cell
         
         return cell
