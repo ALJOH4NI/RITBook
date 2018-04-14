@@ -35,6 +35,8 @@
 		E28BD184207F032600EAA321 /* icons8-secured-letter-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD176207F032600EAA321 /* icons8-secured-letter-30.png */; };
 		E28BD185207F032600EAA321 /* icons8-menu-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD177207F032600EAA321 /* icons8-menu-30.png */; };
 		E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD18A207FD13A00EAA321 /* ProfileVC.swift */; };
+		E28BD190208180D100EAA321 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD18F208180D100EAA321 /* BookModel.swift */; };
+		E28BD1922081829900EAA321 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD1912081829900EAA321 /* userModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		E28BD176207F032600EAA321 /* icons8-secured-letter-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-secured-letter-30.png"; sourceTree = "<group>"; };
 		E28BD177207F032600EAA321 /* icons8-menu-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-menu-30.png"; sourceTree = "<group>"; };
 		E28BD18A207FD13A00EAA321 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		E28BD18F208180D100EAA321 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		E28BD1912081829900EAA321 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +126,8 @@
 		E2680B2C205B05F5007758E4 /* RITBook */ = {
 			isa = PBXGroup;
 			children = (
+				E28BD18E208180BA00EAA321 /* Model */,
 				E28BD169207F02F400EAA321 /* pics */,
-				E28BD163207EFB9D00EAA321 /* model */,
 				E28BD0DC207AB58F00EAA321 /* VC */,
 				E2680B2D205B05F5007758E4 /* AppDelegate.swift */,
 				E2680B31205B05F5007758E4 /* Main.storyboard */,
@@ -150,13 +154,6 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
-		E28BD163207EFB9D00EAA321 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		E28BD169207F02F400EAA321 /* pics */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +173,15 @@
 				E28BD16D207F032400EAA321 /* placeholder-pserson.png */,
 			);
 			path = pics;
+			sourceTree = "<group>";
+		};
+		E28BD18E208180BA00EAA321 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E28BD18F208180D100EAA321 /* BookModel.swift */,
+				E28BD1912081829900EAA321 /* userModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,9 +323,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28BD1922081829900EAA321 /* userModel.swift in Sources */,
 				E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */,
 				E2680B48205B3321007758E4 /* MainVC.swift in Sources */,
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
+				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,
 				82E8D92220816D0600120002 /* BookCell.swift in Sources */,
 				E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */,
