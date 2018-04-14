@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6803B227ECB7146CDDB5FE5C113996F5"
-               BlueprintName = "Pods-RITBook"
+               BlueprintIdentifier = "C1EF03DF5AAA70989A4A49C386AECAB0"
+               BlueprintName = "KeyboardAvoidingView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-RITBook.framework">
+               BuildableName = "KeyboardAvoidingView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

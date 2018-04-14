@@ -9,4 +9,5 @@ target 'RITBook' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
 	pod 'Kingfisher'
+	pod 'KeyboardAvoidingView'
  end

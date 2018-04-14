@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6803B227ECB7146CDDB5FE5C113996F5"
-               BlueprintName = "Pods-RITBook"
+               BlueprintIdentifier = "A6EAB931A714AD2CD2086A01D3828F82"
+               BlueprintName = "APExtensions"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-RITBook.framework">
+               BuildableName = "APExtensions.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
