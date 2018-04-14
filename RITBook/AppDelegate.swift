@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              email: "vb.95@kahs.com")
         let abook = Book(bookTitle: "jhagfhsgd jsdhfd",
                          bookDescription: "jfd jhdfjhd jhdfjhd",
-                         bookLink: "gsdhsg",
+                         bookLink: "https://cdn.pixabay.com/photo/2018/02/28/10/05/love-3187623_1280.jpg",
                          bookPrice: 19.99,
                          collage: "khalid ",
                          userObj: auser)

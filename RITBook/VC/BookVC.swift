@@ -22,13 +22,13 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         
         collectionView?.register(UINib(nibName: "bookCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         let cellWidth : CGFloat = collectionView!.frame.size.width-15
-        let cellheight : CGFloat = 270
+        let cellheight : CGFloat = 367
         let cellSize = CGSize(width: cellWidth , height:cellheight)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical //.horizontal
         layout.itemSize = cellSize
-        layout.sectionInset = UIEdgeInsets(top: 100, left: 1, bottom: 1, right: 1)
+        layout.sectionInset = UIEdgeInsets(top: 50, left: 1, bottom: 1, right: 1)
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 15 
         collectionView?.setCollectionViewLayout(layout, animated: true)
@@ -85,8 +85,6 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-        
-        print(indexPath.row)
     }
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

@@ -6,7 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
+extension UIView {
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+}
 class BookCell: UICollectionViewCell {
     
     @IBOutlet weak var bookTitleLabel: UILabel!
@@ -26,10 +38,12 @@ class BookCell: UICollectionViewCell {
     
     func setUP(book:Book)  {
         
+        let url = URL(string:book.bookLink!)
+        bookImage.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
         bookTitleLabel.text = book.bookTitle
         bookDescLabel.text = book.bookDescription
         deptLabel.text = book.collage
-        bookPriceLabel.text = "\(String(describing: book.bookPrice!))"
+        bookPriceLabel.text = "$\(String(describing: book.bookPrice!))"
 
         
         
