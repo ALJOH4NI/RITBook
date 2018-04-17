@@ -31,8 +31,6 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
                 } else {
                    
                     // adding new user.
-                    
-                    
                     Auth.auth().createUser(withEmail: email.text!, password: password.text!){(user,Error) in
                         
                         if user != nil {

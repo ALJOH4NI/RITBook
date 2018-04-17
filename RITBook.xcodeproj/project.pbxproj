@@ -37,6 +37,8 @@
 		E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD18A207FD13A00EAA321 /* ProfileVC.swift */; };
 		E28BD190208180D100EAA321 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD18F208180D100EAA321 /* BookModel.swift */; };
 		E28BD1922081829900EAA321 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD1912081829900EAA321 /* userModel.swift */; };
+		E28BD19520859A0E00EAA321 /* addphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD19420859A0E00EAA321 /* addphoto.png */; };
+		E28BD19720859A1400EAA321 /* addpic.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD19620859A1300EAA321 /* addpic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		E28BD18A207FD13A00EAA321 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E28BD18F208180D100EAA321 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		E28BD1912081829900EAA321 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
+		E28BD19420859A0E00EAA321 /* addphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addphoto.png; sourceTree = "<group>"; };
+		E28BD19620859A1300EAA321 /* addpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addpic.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +130,12 @@
 		E2680B2C205B05F5007758E4 /* RITBook */ = {
 			isa = PBXGroup;
 			children = (
+				E28BD193208599EA00EAA321 /* place_holders */,
 				E28BD18E208180BA00EAA321 /* Model */,
 				E28BD169207F02F400EAA321 /* pics */,
 				E28BD0DC207AB58F00EAA321 /* VC */,
 				E2680B2D205B05F5007758E4 /* AppDelegate.swift */,
+				82E8D9232081703000120002 /* bookCell.xib */,
 				E2680B31205B05F5007758E4 /* Main.storyboard */,
 				E2680B34205B05F5007758E4 /* Assets.xcassets */,
 				E2680B36205B05F5007758E4 /* LaunchScreen.storyboard */,
@@ -149,7 +155,6 @@
 				8FB1DFB2208020D5001B951E /* Add_booksVC.swift */,
 				82E8D91F20816CC400120002 /* BookVC.swift */,
 				82E8D92120816D0600120002 /* BookCell.swift */,
-				82E8D9232081703000120002 /* bookCell.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -182,6 +187,15 @@
 				E28BD1912081829900EAA321 /* userModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E28BD193208599EA00EAA321 /* place_holders */ = {
+			isa = PBXGroup;
+			children = (
+				E28BD19620859A1300EAA321 /* addpic.png */,
+				E28BD19420859A0E00EAA321 /* addphoto.png */,
+			);
+			path = place_holders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28BD19720859A1400EAA321 /* addpic.png in Resources */,
 				E28BD17A207F032600EAA321 /* icons8-download-from-the-cloud-30.png in Resources */,
 				E28BD184207F032600EAA321 /* icons8-secured-letter-30.png in Resources */,
 				E28BD178207F032600EAA321 /* icons8-delete-64.png in Resources */,
@@ -259,6 +274,7 @@
 				E28BD180207F032600EAA321 /* icons8-login-30.png in Resources */,
 				E28BD17B207F032600EAA321 /* placeholder-pserson.png in Resources */,
 				E28BD185207F032600EAA321 /* icons8-menu-30.png in Resources */,
+				E28BD19520859A0E00EAA321 /* addphoto.png in Resources */,
 				E28BD179207F032600EAA321 /* icons8-settings-30.png in Resources */,
 				E28BD182207F032600EAA321 /* icons8-course-30.png in Resources */,
 				E2680B35205B05F5007758E4 /* Assets.xcassets in Resources */,

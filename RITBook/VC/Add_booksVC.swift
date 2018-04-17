@@ -29,16 +29,12 @@ extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
     
 }
 class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
     @IBOutlet weak var imagePicked: UIImageView!
-    
     @IBOutlet weak var depTextField: UITextField!
-    
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet var deptPicker: UIPickerView!
-    
-    
     @IBAction func dissmisKeyPad(_ sender: Any) {
-        
         self.view.endEditing(true)
     }
     
@@ -46,9 +42,11 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // need to extarct the code ... refactoring
         
-        KeyboardAvoiding.padding = -50
-       KeyboardAvoiding.avoidingView = self.view
+        
+        KeyboardAvoiding.padding = -25
+        KeyboardAvoiding.avoidingView = self.view
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(actionSheet(_:)))
         imagePicked.isUserInteractionEnabled = true
@@ -75,9 +73,8 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         depTextField.inputAccessoryView = toolBar
     }
 
-   @objc  func doneClick() {
-
-    depTextField.resignFirstResponder()
+   @objc func doneClick() {
+        depTextField.resignFirstResponder()
     }
      @objc func cancelClick() {
         depTextField.resignFirstResponder()
@@ -105,8 +102,6 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
             (alert: UIAlertAction!) -> Void in
          //   println("Cancelled")
         })
-        
-        
         // 4
         optionMenu.addAction(cameraAction)
         optionMenu.addAction(libraryAction)
@@ -114,7 +109,6 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         
         // 5
         self.present(optionMenu, animated: true, completion: nil)
-
     }
     
     
@@ -150,7 +144,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         dismiss(animated:true, completion: nil)
     }
     
-  
+
     
 //    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 //        dismiss(animated: true, completion: nil)
