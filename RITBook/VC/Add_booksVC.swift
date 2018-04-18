@@ -7,6 +7,8 @@
 
 import UIKit
 import IHKeyboardAvoiding
+import Firebase
+import FirebaseAuth
 
 extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -29,7 +31,7 @@ extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
     
 }
 class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    
+    var ref: DatabaseReference!
     @IBOutlet weak var imagePicked: UIImageView!
     @IBOutlet weak var depTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
@@ -122,9 +124,19 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         }
         
     }
+    
+    
+    
     @IBAction func post(_ sender: Any) {
-        print("am i asshole")
+       
+        
+       
     }
+    
+    
+    
+    
+    
     func photoLibrary()
     {
         

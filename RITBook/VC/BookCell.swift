@@ -37,15 +37,13 @@ class BookCell: UICollectionViewCell {
     }
     
     func setUP(book:Book)  {
-        
         let url = URL(string:book.bookLink!)
         bookImage.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
         bookTitleLabel.text = book.bookTitle
         bookDescLabel.text = book.bookDescription
-        deptLabel.text = book.collage
-        bookPriceLabel.text = "$\(String(describing: book.bookPrice!))"
-
-        
-        
+        deptLabel.text = book.departmentID
+        let price = Double(round(1000 * book.bookPrice!)/1000)
+        bookPriceLabel.text = "$\(String(price))"
+  
     }
 }
