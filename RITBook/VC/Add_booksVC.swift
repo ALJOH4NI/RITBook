@@ -129,11 +129,23 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     @IBAction func post(_ sender: Any) {
        
-        
+       //TODO
        
     }
     
     
+    
+//    func get_curent_user(){
+//        let userID : String = (Auth.auth().currentUser?.uid)!
+//        print("Current user ID is" + userID)
+//        self.ref?.child("users").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+//            print(snapshot.value)
+//            let userEmail = (snapshot.value as! NSDictionary)["email"] as! String
+//            print(userEmail)
+//            let userNmae = (snapshot.value as! NSDictionary)["name"] as! String
+//            print(userNmae)
+//        })
+//    }
     
     
     
@@ -157,20 +169,6 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     }
     
 
-    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-   
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
