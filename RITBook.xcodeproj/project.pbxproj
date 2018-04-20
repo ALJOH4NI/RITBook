@@ -12,6 +12,7 @@
 		82E8D9242081703000120002 /* bookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E8D9232081703000120002 /* bookCell.xib */; };
 		8FB1DFB3208020D5001B951E /* Add_booksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1DFB2208020D5001B951E /* Add_booksVC.swift */; };
 		CB50AA0195D4C21F76B4B7BD /* Pods_RITBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */; };
+		E22A6797208A95AF006ACDC5 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */; };
 		E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B2D205B05F5007758E4 /* AppDelegate.swift */; };
 		E2680B33205B05F5007758E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2680B31205B05F5007758E4 /* Main.storyboard */; };
 		E2680B35205B05F5007758E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2680B34205B05F5007758E4 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		82E8D9232081703000120002 /* bookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookCell.xib; sourceTree = "<group>"; };
 		8FB1DFB2208020D5001B951E /* Add_booksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_booksVC.swift; sourceTree = "<group>"; };
 		979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RITBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		E2680B2A205B05F5007758E4 /* RITBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RITBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2680B2D205B05F5007758E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2680B32205B05F5007758E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E22A6795208A93C5006ACDC5 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				82E8D9232081703000120002 /* bookCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		E2680B21205B05F5007758E4 = {
 			isa = PBXGroup;
 			children = (
@@ -130,12 +140,11 @@
 		E2680B2C205B05F5007758E4 /* RITBook */ = {
 			isa = PBXGroup;
 			children = (
-				E28BD193208599EA00EAA321 /* place_holders */,
-				E28BD18E208180BA00EAA321 /* Model */,
 				E28BD169207F02F400EAA321 /* pics */,
+				E22A6795208A93C5006ACDC5 /* cells */,
+				E28BD18E208180BA00EAA321 /* Model */,
 				E28BD0DC207AB58F00EAA321 /* VC */,
 				E2680B2D205B05F5007758E4 /* AppDelegate.swift */,
-				82E8D9232081703000120002 /* bookCell.xib */,
 				E2680B31205B05F5007758E4 /* Main.storyboard */,
 				E2680B34205B05F5007758E4 /* Assets.xcassets */,
 				E2680B36205B05F5007758E4 /* LaunchScreen.storyboard */,
@@ -155,6 +164,7 @@
 				8FB1DFB2208020D5001B951E /* Add_booksVC.swift */,
 				82E8D91F20816CC400120002 /* BookVC.swift */,
 				82E8D92120816D0600120002 /* BookCell.swift */,
+				E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -162,6 +172,7 @@
 		E28BD169207F02F400EAA321 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				E28BD193208599EA00EAA321 /* place_holders */,
 				E28BD16E207F032400EAA321 /* icons8-add-new-30.png */,
 				E28BD171207F032500EAA321 /* icons8-close-window-30.png */,
 				E28BD174207F032600EAA321 /* icons8-course-30.png */,
@@ -345,6 +356,7 @@
 			files = (
 				E28BD1922081829900EAA321 /* userModel.swift in Sources */,
 				E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */,
+				E22A6797208A95AF006ACDC5 /* FavoriteVC.swift in Sources */,
 				E2680B48205B3321007758E4 /* MainVC.swift in Sources */,
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
 				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,

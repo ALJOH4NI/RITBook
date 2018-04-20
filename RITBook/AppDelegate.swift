@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         books.append(abook)
         
-         FirebaseApp.configure()
+        FirebaseApp.configure()
         ref = Database.database().reference()
         
         ref.child("collages").observeSingleEvent(of: .value) { (snap) in

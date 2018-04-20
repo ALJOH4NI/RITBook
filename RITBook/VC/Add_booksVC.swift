@@ -22,7 +22,12 @@ extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        print(applicationDelegate.depts[row])
+        guard applicationDelegate.depts.count != 0 else {
+            return
+        }
+            print(applicationDelegate.depts[row])
+
+        
     }
     
     
