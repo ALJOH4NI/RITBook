@@ -6,15 +6,13 @@
 //
 
 import Foundation
-struct dept {
-    let id : String
-    let name:String
-}
+
 struct Book {
+    let bookID: String?
     let bookTitle: String?
     let bookDescription: String?
     let bookLink: String?
     let bookPrice: Double?
-    let collage: String?
-    let userObj: user?
+    let departmentID: String?
+    let userID: String?
 }

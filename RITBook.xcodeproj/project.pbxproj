@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82B5441B2086B22C00E5185F /* DepartmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5441A2086B22C00E5185F /* DepartmentModel.swift */; };
 		82E8D92020816CC400120002 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8D91F20816CC400120002 /* BookVC.swift */; };
 		82E8D92220816D0600120002 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8D92120816D0600120002 /* BookCell.swift */; };
 		82E8D9242081703000120002 /* bookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E8D9232081703000120002 /* bookCell.xib */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		0BBFF0BA31D13FEDBE0AF7CE /* Pods-RITBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.release.xcconfig"; sourceTree = "<group>"; };
 		191DAF86C5C63CBCBFAEA9DF /* Pods-RITBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RITBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RITBook/Pods-RITBook.debug.xcconfig"; sourceTree = "<group>"; };
+		82B5441A2086B22C00E5185F /* DepartmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentModel.swift; sourceTree = "<group>"; };
 		82E8D91F20816CC400120002 /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
 		82E8D92120816D0600120002 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		82E8D9232081703000120002 /* bookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookCell.xib; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				E28BD18F208180D100EAA321 /* BookModel.swift */,
 				E28BD1912081829900EAA321 /* userModel.swift */,
+				82B5441A2086B22C00E5185F /* DepartmentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,
 				82E8D92220816D0600120002 /* BookCell.swift in Sources */,
+				82B5441B2086B22C00E5185F /* DepartmentModel.swift in Sources */,
 				E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */,
 				8FB1DFB3208020D5001B951E /* Add_booksVC.swift in Sources */,
 				82E8D92020816CC400120002 /* BookVC.swift in Sources */,

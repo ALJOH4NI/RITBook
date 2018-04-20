@@ -17,42 +17,90 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var books:[Book] = []
     var depts:[dept] = []
+    var users:[user] = []
     var ref: DatabaseReference!
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        
-       let auser = user(name: "khalid",
-             email: "vb.95@kahs.com")
-        let abook = Book(bookTitle: "jhagfhsgd jsdhfd",
-                         bookDescription: "jfd jhdfjhd jhdfjhd",
-                         bookLink: "https://cdn.pixabay.com/photo/2018/02/28/10/05/love-3187623_1280.jpg",
-                         bookPrice: 19.99,
-                         collage: "khalid ",
-                         userObj: auser)
-        
-        books.append(abook)
         
         FirebaseApp.configure()
-        ref = Database.database().reference()
+            get_all_depts()
+            get_all_books()
         
-        ref.child("collages").observeSingleEvent(of: .value) { (snap) in
+//       let auser = user(name: "khalid",
+//             email: "vb.95@kahs.com")
+//        let abook = Book(bookTitle: "jhagfhsgd jsdhfd",
+//                         bookDescription: "jfd jhdfjhd jhdfjhd",
+//                         bookLink: "https://cdn.pixabay.com/photo/2018/02/28/10/05/love-3187623_1280.jpg",
+//                         bookPrice: 19.99,
+//                         collage: "khalid ",
+//                         userObj: auser)
+//
+//        books.append(abook)
+        
 
-            for  de in snap.children{
-                let snap = de as! DataSnapshot
-                let value = snap.value as? [String:AnyObject]
-                self.depts.append(dept(id: snap.key, name: value!["name"]! as! String))
-
-            }
-        }
+//        FirebaseApp.configure()
+        
+<<<<<<< HEAD
+        FirebaseApp.configure()
+        ref = Database.database().reference()
+=======
+>>>>>>> c98cab4d0cfb7e19ba53740d1033d813f4203f51
+        
+//        ref = Database.database().reference()
+//        ref.child("collages").observeSingleEvent(of: .value) { (snap) in
+//
+//            for  de in snap.children{
+//                let snap = de as! DataSnapshot
+//                let value = snap.value as? [String:AnyObject]
+//                self.depts.append(dept(id: snap.key, name: value!["name"]! as! String))
+//            }
+//        }
+    
+        
+   
         return true
     }
     
     
    
+    func get_all_depts(){
+        ref = Database.database().reference()
+        ref.child("depts").observeSingleEvent(of: .value) { (snap) in
+            for  de in snap.children{
+                let snap = de as! DataSnapshot
+                let value = snap.value as? [String:AnyObject]
+                self.depts.append(dept(id: snap.key, name: value!["dept_name"]! as! String))
+            }
+        }
+    }
     
-
+    
+    func get_all_books(){
+        ref = Database.database().reference()
+        ref.child("books").observeSingleEvent(of: .value) { (snap) in
+            for  book in snap.children{
+                let snap = book as! DataSnapshot
+                let value = snap.value as? [String:AnyObject]
+                self.books.append(
+                                    Book(
+                                       bookID: snap.key,
+                                       bookTitle: value!["book_title"]! as? String,
+                                       bookDescription: value!["bookDescription"]! as? String,
+                                       bookLink: value!["bookLink"]! as? String,
+                                       bookPrice: value!["bookPrice"]! as? Double,
+                                       departmentID: value!["depID"]! as? String,
+                                       userID: value!["uid"]! as? String)
+                )
+                
+            }
+           print(self.books)
+        }
+    }
+    
+    
+    
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
