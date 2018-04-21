@@ -41,6 +41,7 @@
 		E28BD1922081829900EAA321 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD1912081829900EAA321 /* userModel.swift */; };
 		E28BD19520859A0E00EAA321 /* addphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD19420859A0E00EAA321 /* addphoto.png */; };
 		E28BD19720859A1400EAA321 /* addpic.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD19620859A1300EAA321 /* addpic.png */; };
+		E2C7481E208AE53000AC79F9 /* MybooksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C7481D208AE53000AC79F9 /* MybooksVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		E28BD1912081829900EAA321 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
 		E28BD19420859A0E00EAA321 /* addphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addphoto.png; sourceTree = "<group>"; };
 		E28BD19620859A1300EAA321 /* addpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addpic.png; sourceTree = "<group>"; };
+		E2C7481D208AE53000AC79F9 /* MybooksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MybooksVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				82E8D91F20816CC400120002 /* BookVC.swift */,
 				82E8D92120816D0600120002 /* BookCell.swift */,
 				E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */,
+				E2C7481D208AE53000AC79F9 /* MybooksVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -311,19 +314,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RITBook/Pods-RITBook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -364,6 +371,7 @@
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
 				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,
+				E2C7481E208AE53000AC79F9 /* MybooksVC.swift in Sources */,
 				82E8D92220816D0600120002 /* BookCell.swift in Sources */,
 				82B5441B2086B22C00E5185F /* DepartmentModel.swift in Sources */,
 				E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */,
@@ -512,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KV6BJQT494;
 				INFOPLIST_FILE = RITBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -531,7 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KV6BJQT494;
 				INFOPLIST_FILE = RITBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

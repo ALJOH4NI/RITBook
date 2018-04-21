@@ -9,34 +9,13 @@ import UIKit
 import IHKeyboardAvoiding
 import Firebase
 import FirebaseAuth
+import NVActivityIndicatorView
 
-extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return applicationDelegate.depts.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return applicationDelegate.depts[row].name
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        guard applicationDelegate.depts.count != 0 else {
-            return
-        }
-            print(applicationDelegate.depts[row])
-
-        
-    }
-    
-    
-    
-}
-class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,NVActivityIndicatorViewable {
     var ref: DatabaseReference!
+
+    @IBOutlet weak var bookTitle: UITextField!
+    @IBOutlet weak var bookDescription: UITextView!
     @IBOutlet weak var imagePicked: UIImageView!
     @IBOutlet weak var depTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
@@ -45,13 +24,14 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         self.view.endEditing(true)
     }
     
-    
+   lazy var activityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: 0, y: 100, width: 50, height: 50),
+                                                        type: NVActivityIndicatorType.ballBeat)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // need to extarct the code ... refactoring
-        
-        
+      
+        activityIndicatorView.center = self.view.center
         KeyboardAvoiding.padding = -25
         KeyboardAvoiding.avoidingView = self.view
         
@@ -78,6 +58,9 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         
         depTextField.inputView = deptPicker
         depTextField.inputAccessoryView = toolBar
+        
+        activityIndicatorView.backgroundColor = UIColor.red.withAlphaComponent(0.90)
+        self.view.addSubview(activityIndicatorView)
     }
 
    @objc func doneClick() {
@@ -90,7 +73,6 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
  
 
     @IBAction func actionSheet(_ sender: Any) {
-        print("sdskdj")
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         // 2
         let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {
@@ -133,10 +115,56 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     
     @IBAction func post(_ sender: Any) {
-       
-       //TODO
-       
-    }
+       let size = CGSize(width: 30, height: 30)
+        startAnimating(size, message: "Posting...")
+        let department = depTextField.text
+        let price = (priceTextField.text!  as NSString).doubleValue
+
+        let title = bookTitle.text
+        let description = bookDescription.text
+        var link = "www.google.com"
+        let uid = "12345676kj3322"
+        
+        
+        // Data in memory
+        let data = UIImagePNGRepresentation(imagePicked.image!)
+        let imageName =  applicationDelegate.ref.childByAutoId().description().split(separator: "/").last
+        // Create a reference to the file you want to upload
+        let riversRef = applicationDelegate.storageRef.child("bookImages/\(String(describing: imageName!)).jpg")
+        
+        riversRef.putData(data!, metadata: nil) { (me, err) in
+            
+           riversRef.downloadURL(completion: { (url, err) in
+            
+            if let url = url?.absoluteString {
+        
+                link = url
+                let par = ["bookDescription":description as! String ,"bookLink": link,"bookPrice": price,"book_title": title, "dep_name": department, "uid": uid] as [String : Any]
+
+                applicationDelegate.ref.child("books").childByAutoId().setValue(par, withCompletionBlock: { (_, _) in
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        self.stopAnimating()
+                    }
+
+                    let tabbar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+                    let bookUINavigationController =  tabbar.viewControllers![0] as! UINavigationController
+                    let book =  bookUINavigationController.viewControllers[0] as! BookVC
+
+                    tabbar.selectedIndex = 0
+                    book.reloadDta()
+
+                
+                })
+                
+
+             }
+                
+            })
+            
+        }
+
     
     
     
@@ -152,7 +180,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
 //        })
 //    }
     
-    
+    }
     
     func photoLibrary()
     {
@@ -176,4 +204,30 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
 
  
 
+}
+
+
+extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return applicationDelegate.depts.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return applicationDelegate.depts[row].name
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        guard applicationDelegate.depts.count != 0 else {
+            return
+        }
+       depTextField.text = applicationDelegate.depts[row].name
+    
+    }
+    
+    
+    
 }

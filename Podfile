@@ -10,5 +10,7 @@ target 'RITBook' do
 	pod 'Firebase/Database'
     pod 'IHKeyboardAvoiding'
     pod 'Kingfisher'
+    pod 'DropDown'
+    pod 'NVActivityIndicatorView'
 
  end

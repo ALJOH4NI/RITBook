@@ -1,4 +1,3 @@
-//
 //  BookCell.swift
 //  RITBook
 //

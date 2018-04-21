@@ -6,13 +6,96 @@
 //
 
 import UIKit
-
+import DropDown
+import NVActivityIndicatorView
 private let reuseIdentifier = "Cell"
 
-class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NVActivityIndicatorViewable {
+    
+    @IBOutlet weak var DropFilter: UIBarButtonItem!
+    let rightBarDropDown = DropDown()
 
+
+    
+    
+    var books = [Book]()
+    var booksfiltred = [Book]()
+    var dropViewSelectedIndex = 0
+    lazy var activityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: 0, y: 100, width: 50, height: 50),
+                                                             type: NVActivityIndicatorType.ballBeat)
+    fileprivate func filteredBook(_ index: Index) {
+        self.booksfiltred =   self.books.filter({ (book) -> Bool in
+            
+            if index == 0 {
+                return true
+            }
+            if book.departmentID == self.rightBarDropDown.dataSource[index]{
+                return true
+                
+            }
+            return false
+        })
+    }
+    
+    @IBAction func didPressDropFilter(_ sender: Any) {
+        rightBarDropDown.show()
+        
+        rightBarDropDown.selectionAction =   { (index, item) in
+          
+            self.dropViewSelectedIndex = index
+            self.filteredBook(index)
+
+            self.collectionView?.reloadData()
+            
+        
+            
+        }
+        
+        
+    }
+    func setupRightBarDropDown() {
+        rightBarDropDown.anchorView = DropFilter
+        // You can also use localizationKeysDataSource instead. Check the docs.
+        rightBarDropDown.dataSource.append("All")
+
+        for abook in books{
+            
+            if !rightBarDropDown.dataSource.contains(where: {$0 ==  abook.departmentID!}){
+                rightBarDropDown.dataSource.append(abook.departmentID!)
+
+            }
+        }
+      
+    }
+    
+    func reloadDta() {
+        let size = CGSize(width: 30, height: 30)
+        
+        startAnimating(size, message: "fetching...", type: NVActivityIndicatorType.ballClipRotate)
+        applicationDelegate.get_all_books(complation: { books in
+            
+            self.books = books
+            self.collectionView?.reloadData()
+            self.stopAnimating()
+            self.filteredBook(self.dropViewSelectedIndex)
+
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Books"
+        applicationDelegate.get_all_books(complation: { books in
+            
+            self.books = books
+            self.booksfiltred = books
+            self.collectionView?.reloadData()
+            self.setupRightBarDropDown()
+
+            
+        })
+        activityIndicatorView.center = self.view.center
+
+        self.view.addSubview(activityIndicatorView)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,12 +153,12 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return applicationDelegate.books.count
+        return booksfiltred.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookCell
-            cell.setUP(book: applicationDelegate.books[indexPath.row])
+            cell.setUP(book: booksfiltred[indexPath.row])
         // Configure the cell
         
         return cell
@@ -85,6 +168,20 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
+        let alet = UIAlertController(title:books[indexPath.row].bookTitle , message: "you can call him by clicking button below ", preferredStyle: .actionSheet)
+        
+        alet.addAction(UIAlertAction(title: "Email me", style: .default, handler: { (callMe) in
+            let email = "foo@bar.com"
+            if let url = URL(string: "mailto:\(email)") {
+                UIApplication.shared.open(url)
+            }
+        }))
+        
+    
+        alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+            
+        }))
+        self.present(alet, animated: true, completion: nil)
     }
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

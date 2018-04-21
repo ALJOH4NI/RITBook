@@ -15,47 +15,18 @@ let applicationDelegate:AppDelegate = UIApplication.shared.delegate as! AppDeleg
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var books:[Book] = []
     var depts:[dept] = []
     var users:[user] = []
-    var ref: DatabaseReference!
+    
+    lazy var ref: DatabaseReference = Database.database().reference()
+    lazy var storageRef = Storage.storage().reference()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
             get_all_depts()
-            get_all_books()
-        
-//       let auser = user(name: "khalid",
-//             email: "vb.95@kahs.com")
-//        let abook = Book(bookTitle: "jhagfhsgd jsdhfd",
-//                         bookDescription: "jfd jhdfjhd jhdfjhd",
-//                         bookLink: "https://cdn.pixabay.com/photo/2018/02/28/10/05/love-3187623_1280.jpg",
-//                         bookPrice: 19.99,
-//                         collage: "khalid ",
-//                         userObj: auser)
-//
-//        books.append(abook)
         
 
-//        FirebaseApp.configure()
-        
-<<<<<<< HEAD
-        FirebaseApp.configure()
-        ref = Database.database().reference()
-=======
->>>>>>> c98cab4d0cfb7e19ba53740d1033d813f4203f51
-        
-//        ref = Database.database().reference()
-//        ref.child("collages").observeSingleEvent(of: .value) { (snap) in
-//
-//            for  de in snap.children{
-//                let snap = de as! DataSnapshot
-//                let value = snap.value as? [String:AnyObject]
-//                self.depts.append(dept(id: snap.key, name: value!["name"]! as! String))
-//            }
-//        }
-    
-        
    
         return true
     }
@@ -74,25 +45,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func get_all_books(){
-        ref = Database.database().reference()
+    func get_all_books(complation:@escaping (([Book])-> Void)){
+
+
+        
         ref.child("books").observeSingleEvent(of: .value) { (snap) in
+            var books = [Book]()
             for  book in snap.children{
                 let snap = book as! DataSnapshot
                 let value = snap.value as? [String:AnyObject]
-                self.books.append(
-                                    Book(
+                
+                books.append(Book(
                                        bookID: snap.key,
                                        bookTitle: value!["book_title"]! as? String,
                                        bookDescription: value!["bookDescription"]! as? String,
                                        bookLink: value!["bookLink"]! as? String,
                                        bookPrice: value!["bookPrice"]! as? Double,
-                                       departmentID: value!["depID"]! as? String,
+                                       departmentID: value!["dep_name"]! as? String,
                                        userID: value!["uid"]! as? String)
                 )
                 
             }
-           print(self.books)
+            complation(books)
         }
     }
     
