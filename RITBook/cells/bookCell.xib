@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookCell" customModule="RITBook" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleAspectFit" id="iN0-l3-epB" customClass="BookCell" customModule="RITBook" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="487" height="368"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="book_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Udg-HZ-DDu">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="book_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Udg-HZ-DDu">
                     <rect key="frame" x="0.0" y="0.0" width="487" height="216"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOk TITILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMC-y1-6lf">

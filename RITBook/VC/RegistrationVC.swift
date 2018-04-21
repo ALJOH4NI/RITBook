@@ -35,7 +35,7 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
                         
                         if user != nil {
                             self.ref = Database.database().reference() // root refernace
-                            self.ref.child("users").childByAutoId().setValue(["name":self.name.text ,"password": self.password.text,"email": self.email.text])
+                            self.ref.child("users").child((user?.uid)!).setValue(["name":self.name.text ,"password": self.password.text,"email": self.email.text])
                         let alert = UIAlertController(title: "Sucessfual !!", message: "You just create a new account =)", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "Login page", style: .default) {(action) in
                             // transfer the use to the login page.

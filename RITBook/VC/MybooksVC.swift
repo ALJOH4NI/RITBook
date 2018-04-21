@@ -15,23 +15,19 @@ class MybooksVC: UITableViewController {
 
         self.title = "My Books"
         
-        applicationDelegate.get_all_books { (book) in
+        applicationDelegate.get_all_books(excludeCurrentUSer: false) { (book) in
             
             self.myBooks = book.filter({ (book) -> Bool in
-                if book.userID == "12345676kj3322"{
+                if book.userID == applicationDelegate.getUserID(){
                     return true
                 }
                 return false
             })
             
             self.tableView.reloadData()
-            
+            self.navigationItem.rightBarButtonItem = self.editButtonItem
         }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,10 +67,18 @@ class MybooksVC: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            applicationDelegate.ref.child("books/\(String(describing: self.myBooks[indexPath.row].bookID!))").removeValue()
-            self.myBooks.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let confimationTodelete = UIAlertController(title: "are sure you want to delete \(String(describing: self.myBooks[indexPath.row].bookTitle!))", message: " Book will be removed for ever", preferredStyle: .actionSheet)
+            confimationTodelete.addAction(UIAlertAction(title: "ok", style: .default, handler: { (OK) in
+                // Delete the row from the data source
+                applicationDelegate.ref.child("books/\(String(describing: self.myBooks[indexPath.row].bookID!))").removeValue()
+                self.myBooks.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }))
+            confimationTodelete.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(confimationTodelete, animated: true, completion: nil)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

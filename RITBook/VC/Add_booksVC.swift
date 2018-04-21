@@ -122,8 +122,8 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
 
         let title = bookTitle.text
         let description = bookDescription.text
-        var link = "www.google.com"
-        let uid = "12345676kj3322"
+        var link = ""
+        let uid = applicationDelegate.getUserID()
         
         
         // Data in memory
@@ -139,7 +139,12 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
             if let url = url?.absoluteString {
         
                 link = url
-                let par = ["bookDescription":description as! String ,"bookLink": link,"bookPrice": price,"book_title": title, "dep_name": department, "uid": uid] as [String : Any]
+                let par = ["bookDescription":description ?? "" ,
+                           "bookLink": link ,
+                           "bookPrice": price ,
+                           "book_title": title ?? "",
+                           "dep_name": department ?? "",
+                           "uid": uid ] as [String : Any]
 
                 applicationDelegate.ref.child("books").childByAutoId().setValue(par, withCompletionBlock: { (_, _) in
                     
@@ -147,8 +152,11 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                         self.stopAnimating()
                     }
-
-                    let tabbar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+                    
+                    
+                    
+                    let tabbar = applicationDelegate.window?.rootViewController as! UITabBarController
+                    
                     let bookUINavigationController =  tabbar.viewControllers![0] as! UINavigationController
                     let book =  bookUINavigationController.viewControllers[0] as! BookVC
 

@@ -32,16 +32,25 @@ class LoginVC: UIViewController {
     }
     
     fileprivate func main_seque() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-        self.present(vc!, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "Main")
+        applicationDelegate.window?.rootViewController = initialViewController
+        applicationDelegate.window?.makeKeyAndVisible()
+
     }
     
     @IBAction func loginAction(_ sender: AnyObject) {
+        
+       
         if email.text! == "" || password.text! == "" {
             self.alert_for_empty_field()
         } else {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!) {(user,Error) in
                 if user != nil {
+                   // save it into defaultuser
+                    if let userID =  user?.uid {
+                        applicationDelegate.setUserID(uID: userID)
+                    }
                     self.main_seque()
                 }else {
                     self.alter_for_wrong_login()
@@ -52,6 +61,16 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard applicationDelegate.getUserID().count == 0 else {
+            
+            print("he is good ", applicationDelegate.getUserID())
+
+        
+            self.main_seque()
+            return
+        }
+
         // Do any additional setup after loading the view.
     }
 }

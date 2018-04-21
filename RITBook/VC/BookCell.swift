@@ -32,7 +32,7 @@ class BookCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.masksToBounds = true
         
-     
+
     }
     
     func setUP(book:Book)  {

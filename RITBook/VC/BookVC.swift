@@ -72,7 +72,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
         let size = CGSize(width: 30, height: 30)
         
         startAnimating(size, message: "fetching...", type: NVActivityIndicatorType.ballClipRotate)
-        applicationDelegate.get_all_books(complation: { books in
+        applicationDelegate.get_all_books(excludeCurrentUSer: true, complation: { books in
             
             self.books = books
             self.collectionView?.reloadData()
@@ -84,7 +84,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Books"
-        applicationDelegate.get_all_books(complation: { books in
+        applicationDelegate.get_all_books(excludeCurrentUSer: true, complation: { books in
             
             self.books = books
             self.booksfiltred = books
@@ -177,7 +177,10 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
             }
         }))
         
-    
+        alet.addAction(UIAlertAction(title: "add me as fav", style: .default, handler: { (fav) in
+            
+            applicationDelegate.addNewFavoritePark(self.books[indexPath.row].bookID!, sendData: false)
+        }))
         alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
             
         }))

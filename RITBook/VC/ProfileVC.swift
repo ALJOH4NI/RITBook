@@ -38,20 +38,22 @@ class ProfileVC: UIViewController {
     
     
     @IBAction func Logout() {
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                present(vc!, animated: true, completion: nil)
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+        
+        if applicationDelegate.getUserID().count != 0{
+            applicationDelegate.removeUserID()
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            present(vc!, animated: true, completion: nil)
         }
+     
     } //end of the method
     
     
     
     func get_curent_user(){
+        print(applicationDelegate.getUserID())
+    applicationDelegate.ref.child("users").child(applicationDelegate.getUserID()).observeSingleEvent(of: .value) { (data) in
+            print(data)
+        }
         
         }
 

@@ -23,8 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        FirebaseApp.configure()
-            get_all_depts()
+          FirebaseApp.configure()
+        get_all_depts()
+
+        print("getUserID",getUserID())
+        if getUserID().count == 0{
+        
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+            return true
+        }
+      
         
 
    
@@ -44,8 +57,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
-    func get_all_books(complation:@escaping (([Book])-> Void)){
+    func setUserID(uID:String) {
+        UserDefaults.standard.set(uID, forKey: "userID")
+        UserDefaults.standard.synchronize()
+    }
+    func getUserID() -> String {
+        if let user = UserDefaults.standard.value(forKey: "userID"){
+            return (user as? String)!
+        }
+        return ""
+    }
+    func removeUserID() {
+        UserDefaults.standard.removeObject(forKey: "userID")
+          UserDefaults.standard.synchronize()
+        
+    }
+    func get_all_books(excludeCurrentUSer:Bool, complation:@escaping (([Book])-> Void)){
 
 
         
@@ -54,16 +81,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for  book in snap.children{
                 let snap = book as! DataSnapshot
                 let value = snap.value as? [String:AnyObject]
+                let book = Book(
+                    bookID: snap.key,
+                    bookTitle: value!["book_title"]! as? String,
+                    bookDescription: value!["bookDescription"]! as? String,
+                    bookLink: value!["bookLink"]! as? String,
+                    bookPrice: value!["bookPrice"]! as? Double,
+                    departmentID: value!["dep_name"]! as? String,
+                    userID: value!["uid"]! as? String)
                 
-                books.append(Book(
-                                       bookID: snap.key,
-                                       bookTitle: value!["book_title"]! as? String,
-                                       bookDescription: value!["bookDescription"]! as? String,
-                                       bookLink: value!["bookLink"]! as? String,
-                                       bookPrice: value!["bookPrice"]! as? Double,
-                                       departmentID: value!["dep_name"]! as? String,
-                                       userID: value!["uid"]! as? String)
-                )
+                if excludeCurrentUSer{
+                    if book.userID !=  self.getUserID(){
+                       books.append(book)
+                    }
+                }else{
+                    books.append(book)
+
+                }
+        
+         
                 
             }
             complation(books)
@@ -72,7 +108,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
+    func removeFavoritePark(_ parkName:String) {
+        
+        var favorites = getFavoriteParks()
+        
+        if let index = favorites.index(where: {$0 == parkName}){
+            
+            favorites.remove(at: index)
+            
+        }
+        UserDefaults.standard.set(favorites, forKey:"favorites")
+        UserDefaults.standard.synchronize()
+        
+        
+    }
+    func addNewFavoritePark(_ parkName:String, sendData:Bool)  {
+        
+        var favorites = getFavoriteParks()
+        
+        if !favorites.contains(parkName) {
+            favorites.append(parkName)
+        }
+        
+        UserDefaults.standard.set(favorites, forKey:"favorites")
+        
+        UserDefaults.standard.synchronize()
+        
+ 
+        
+    }
     
+    func getFavoriteParks() -> [String] {
+        guard UserDefaults.standard.array(forKey: "favorites") as? [String] != nil else {
+            return []
+        }
+        
+        return (UserDefaults.standard.array(forKey: "favorites") as? [String])!
+        
+    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {
