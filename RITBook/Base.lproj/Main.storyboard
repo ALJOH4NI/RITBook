@@ -127,6 +127,8 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="profileImage" destination="Pt1-Yr-TXq" id="O6e-oF-B0O"/>
+                        <outlet property="userEmail" destination="i1g-mF-Mw3" id="7TL-gO-Vcr"/>
+                        <outlet property="username" destination="AOC-oh-2tF" id="qqq-el-XyL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCi-4Z-Z2D" userLabel="First Responder" sceneMemberID="firstResponder"/>

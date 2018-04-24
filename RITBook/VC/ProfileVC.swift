@@ -11,17 +11,18 @@ import FirebaseAuth
 
 class ProfileVC: UIViewController {
         var ref: DatabaseReference!
-        var userEmail:String = "guest@email.com"
-        var userName:String = "Hello Guest"
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var username: UILabel!
     
+    @IBOutlet weak var userEmail: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageRounded()
         get_curent_user()
+        
     }
 
     
@@ -50,24 +51,19 @@ class ProfileVC: UIViewController {
     
     
     func get_curent_user(){
-        print(applicationDelegate.getUserID())
+    print(applicationDelegate.getUserID())
+    applicationDelegate.ref.child("users").child(applicationDelegate.getUserID()).observeSingleEvent(of: .value) { (snapshot) in
         
-        applicationDelegate.ref.child("users").child(applicationDelegate.getUserID()).observeSingleEvent(of: .value) { (data) in
-            
-//            for  de in data.children{
-//                let snap = de as! DataSnapshot
-//                let value = snap.value as? [String:AnyObject]
-//                self.depts.append(dept(id: snap.key, name: value!["dept_name"]! as! String))
-//
-//            self.userEmail = data.children.value(forKey: "name") as! String
-//            self.userName = data.children.value(forKey: "email") as! String
-//
-//            print(self.userEmail)
-//            print(self.userEmail)
-//
-            
+        guard  snapshot.value  as? [String:Any] != nil else{
+            return
         }
+         let va =  snapshot.value  as! [String:Any]
+                print(va["email"] as! String)
+                print(va["name"] as! String)
+                self.userEmail.text = va["email"] as? String
+                self.username.text = va["name"] as? String
+            }
         
-        }
-
+        } // end of get_curent_user
+    
 } //class
