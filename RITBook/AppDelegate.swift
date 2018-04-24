@@ -23,13 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-          FirebaseApp.configure()
+        FirebaseApp.configure()
         get_all_depts()
 
         print("getUserID",getUserID())
         if getUserID().count == 0{
-        
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
             self.window?.rootViewController = initialViewController
@@ -72,10 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           UserDefaults.standard.synchronize()
         
     }
+    
     func get_all_books(excludeCurrentUSer:Bool, complation:@escaping (([Book])-> Void)){
-
-
-        
         ref.child("books").observeSingleEvent(of: .value) { (snap) in
             var books = [Book]()
             for  book in snap.children{
@@ -98,9 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     books.append(book)
 
                 }
-        
-         
-                
             }
             complation(books)
         }
@@ -131,11 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         UserDefaults.standard.set(favorites, forKey:"favorites")
-        
         UserDefaults.standard.synchronize()
-        
- 
-        
+    
     }
     
     func getFavoriteParks() -> [String] {

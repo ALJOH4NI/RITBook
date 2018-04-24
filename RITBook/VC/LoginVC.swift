@@ -14,6 +14,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        login_Useid()
+    }
+    
+    
     fileprivate func alter_for_wrong_login() {
         let alert = UIAlertController(title: "Worring!", message: "Please Enter Your Information", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) {(action) in
@@ -40,8 +47,6 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: AnyObject) {
-        
-       
         if email.text! == "" || password.text! == "" {
             self.alert_for_empty_field()
         } else {
@@ -59,18 +64,15 @@ class LoginVC: UIViewController {
         } //else
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    func login_Useid(){
         guard applicationDelegate.getUserID().count == 0 else {
-            
-            print("he is good ", applicationDelegate.getUserID())
-
-        
+            print("He/She is good ", applicationDelegate.getUserID())
             self.main_seque()
             return
         }
-
-        // Do any additional setup after loading the view.
     }
+    
+   
+    
 }

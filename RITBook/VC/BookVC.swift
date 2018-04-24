@@ -14,17 +14,13 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     
     @IBOutlet weak var DropFilter: UIBarButtonItem!
     let rightBarDropDown = DropDown()
-
-
-    
-    
     var books = [Book]()
     var booksfiltred = [Book]()
     var dropViewSelectedIndex = 0
     lazy var activityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: 0, y: 100, width: 50, height: 50),
                                                              type: NVActivityIndicatorType.ballBeat)
     fileprivate func filteredBook(_ index: Index) {
-        self.booksfiltred =   self.books.filter({ (book) -> Bool in
+        self.booksfiltred = self.books.filter({ (book) -> Bool in
             
             if index == 0 {
                 return true
@@ -71,7 +67,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     func reloadDta() {
         let size = CGSize(width: 30, height: 30)
         
-        startAnimating(size, message: "fetching...", type: NVActivityIndicatorType.ballClipRotate)
+        startAnimating(size, message: "fetching ...", type: NVActivityIndicatorType.ballClipRotate)
         applicationDelegate.get_all_books(excludeCurrentUSer: true, complation: { books in
             
             self.books = books
@@ -159,8 +155,6 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookCell
             cell.setUP(book: booksfiltred[indexPath.row])
-        // Configure the cell
-        
         return cell
     }
 
@@ -168,7 +162,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-        let alet = UIAlertController(title:books[indexPath.row].bookTitle , message: "you can call him by clicking button below ", preferredStyle: .actionSheet)
+        let alet = UIAlertController(title:books[indexPath.row].bookTitle , message: "you can contact  by email ", preferredStyle: .actionSheet)
         
         alet.addAction(UIAlertAction(title: "Email me", style: .default, handler: { (callMe) in
             let email = "foo@bar.com"

@@ -10,13 +10,30 @@ import UIKit
 class MybooksVC: UITableViewController {
 
     var myBooks:[Book] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "My Books"
+        getAllBooks()
         
+//        applicationDelegate.get_all_books(excludeCurrentUSer: false) { (book) in
+//            self.myBooks = book.filter({ (book) -> Bool in
+//                if book.userID == applicationDelegate.getUserID(){
+//                    return true
+//                }
+//                return false
+//            })
+//
+//            self.tableView.reloadData()
+//            self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        }
+       
+    }
+
+    
+
+    func getAllBooks(){
         applicationDelegate.get_all_books(excludeCurrentUSer: false) { (book) in
-            
             self.myBooks = book.filter({ (book) -> Bool in
                 if book.userID == applicationDelegate.getUserID(){
                     return true
@@ -27,15 +44,10 @@ class MybooksVC: UITableViewController {
             self.tableView.reloadData()
             self.navigationItem.rightBarButtonItem = self.editButtonItem
         }
-       
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
+    
+    
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -51,10 +63,18 @@ class MybooksVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
-
         cell.textLabel?.text = myBooks[indexPath.row].bookTitle
-        cell.detailTextLabel?.text = "\(String(describing:  myBooks[indexPath.row].bookPrice!))"
+        cell.detailTextLabel?.text = "$\(String(describing:  myBooks[indexPath.row].bookPrice!))"
+        
+        let url = URL(string:myBooks[indexPath.row].bookLink!)
+        cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        
+//        cell.imageView?.layer.cornerRadius =  35
+//        cell.layer.masksToBounds = true
+//        cell.imageView?.clipsToBounds = true
+//        cell.layoutIfNeeded()
+        
+        
         return cell
     }
 

@@ -29,10 +29,8 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
                     present(alert, animated: true, completion: nil)
         
                 } else {
-                   
                     // adding new user.
                     Auth.auth().createUser(withEmail: email.text!, password: password.text!){(user,Error) in
-                        
                         if user != nil {
                             self.ref = Database.database().reference() // root refernace
                             self.ref.child("users").child((user?.uid)!).setValue(["name":self.name.text ,"password": self.password.text,"email": self.email.text])

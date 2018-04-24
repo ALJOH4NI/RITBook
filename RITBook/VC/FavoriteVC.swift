@@ -14,7 +14,7 @@ class FavoriteVC: UITableViewController {
         super.viewDidLoad()
 
         
-   self.title = "you are anahole"
+        self.title = "My cart"
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.rowHeight = 50
 
@@ -42,7 +42,30 @@ class FavoriteVC: UITableViewController {
     }
 
 
-
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let alet = UIAlertController(title:favorites[indexPath.row].bookTitle , message: "you can contact  by email ", preferredStyle: .actionSheet)
+        
+        alet.addAction(UIAlertAction(title: "Email me", style: .default, handler: { (callMe) in
+            let email = "foo@bar.com"
+            if let url = URL(string: "mailto:\(email)") {
+                UIApplication.shared.open(url)
+            }
+        }))
+        
+//        alet.addAction(UIAlertAction(title: "add me as fav", style: .default, handler: { (fav) in
+//            
+//            applicationDelegate.addNewFavoritePark(self.favorites[indexPath.row].bookID!, sendData: false)
+//        }))
+        alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+            
+        }))
+        self.present(alet, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,12 +88,13 @@ class FavoriteVC: UITableViewController {
         let url = URL(string:favorites[indexPath.row].bookLink!)
         cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
 //        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 30, height: 66)
-        cell.imageView?.layer.cornerRadius =  35
-        cell.layer.masksToBounds = true
-        cell.imageView?.clipsToBounds = true
-        cell.layoutIfNeeded()
+//        cell.imageView?.layer.cornerRadius =  35
+//        cell.layer.masksToBounds = true
+//        cell.imageView?.clipsToBounds = true
+//        cell.layoutIfNeeded()
         return cell
     }
+
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -13,7 +13,6 @@ import NVActivityIndicatorView
 
 class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,NVActivityIndicatorViewable {
     var ref: DatabaseReference!
-
     @IBOutlet weak var bookTitle: UITextField!
     @IBOutlet weak var bookDescription: UITextView!
     @IBOutlet weak var imagePicked: UIImageView!
@@ -28,8 +27,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                                                         type: NVActivityIndicatorType.ballBeat)
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // need to extarct the code ... refactoring
+        
       
         activityIndicatorView.center = self.view.center
         KeyboardAvoiding.padding = -25
@@ -115,7 +113,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     
     @IBAction func post(_ sender: Any) {
-       let size = CGSize(width: 30, height: 30)
+        let size = CGSize(width: 30, height: 30)
         startAnimating(size, message: "Posting...")
         let department = depTextField.text
         let price = (priceTextField.text!  as NSString).doubleValue
@@ -126,15 +124,14 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         let uid = applicationDelegate.getUserID()
         
         
-        // Data in memory
+ 
         let data = UIImagePNGRepresentation(imagePicked.image!)
         let imageName =  applicationDelegate.ref.childByAutoId().description().split(separator: "/").last
-        // Create a reference to the file you want to upload
-        let riversRef = applicationDelegate.storageRef.child("bookImages/\(String(describing: imageName!)).jpg")
+        let imageRef = applicationDelegate.storageRef.child("bookImages/\(String(describing: imageName!)).jpg")
         
-        riversRef.putData(data!, metadata: nil) { (me, err) in
+        imageRef.putData(data!, metadata: nil) { (me, err) in
             
-           riversRef.downloadURL(completion: { (url, err) in
+           imageRef.downloadURL(completion: { (url, err) in
             
             if let url = url?.absoluteString {
         
@@ -154,9 +151,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                     }
                     
                     
-                    
                     let tabbar = applicationDelegate.window?.rootViewController as! UITabBarController
-                    
                     let bookUINavigationController =  tabbar.viewControllers![0] as! UINavigationController
                     let book =  bookUINavigationController.viewControllers[0] as! BookVC
 
