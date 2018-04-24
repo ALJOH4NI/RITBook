@@ -16,23 +16,17 @@ class MybooksVC: UITableViewController {
         self.title = "My Books"
         getAllBooks()
         
-//        applicationDelegate.get_all_books(excludeCurrentUSer: false) { (book) in
-//            self.myBooks = book.filter({ (book) -> Bool in
-//                if book.userID == applicationDelegate.getUserID(){
-//                    return true
-//                }
-//                return false
-//            })
-//
-//            self.tableView.reloadData()
-//            self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        }
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(getAllBooks),
+            name: NSNotification.Name(rawValue: "myCart"),
+            object: nil)
        
     }
 
     
 
-    func getAllBooks(){
+    @objc func getAllBooks(){
         applicationDelegate.get_all_books(excludeCurrentUSer: false) { (book) in
             self.myBooks = book.filter({ (book) -> Bool in
                 if book.userID == applicationDelegate.getUserID(){

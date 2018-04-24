@@ -13,6 +13,11 @@ class FavoriteVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(setUp),
+            name: NSNotification.Name(rawValue: "FavoriteVC"),
+            object: nil)
         
         self.title = "My cart"
         self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -23,7 +28,7 @@ class FavoriteVC: UITableViewController {
         }
  
     
-    func setUp()  {
+    @objc func setUp()  {
         let userFavorite = applicationDelegate.getFavoriteParks()
         favorites.removeAll()
         applicationDelegate.get_all_books(excludeCurrentUSer: false) { (books) in
@@ -46,25 +51,31 @@ class FavoriteVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alet = UIAlertController(title:favorites[indexPath.row].bookTitle , message: "you can contact  by email ", preferredStyle: .actionSheet)
-        
-        alet.addAction(UIAlertAction(title: "Email me", style: .default, handler: { (callMe) in
-            let email = "foo@bar.com"
-            if let url = URL(string: "mailto:\(email)") {
-                UIApplication.shared.open(url)
-            }
-        }))
-        
-//        alet.addAction(UIAlertAction(title: "add me as fav", style: .default, handler: { (fav) in
-//            
-//            applicationDelegate.addNewFavoritePark(self.favorites[indexPath.row].bookID!, sendData: false)
-//        }))
-        alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+        applicationDelegate.ref.child("users").child(favorites[indexPath.row].userID!).observeSingleEvent(of: .value) { (snapshot) in
             
-        }))
-        self.present(alet, animated: true, completion: nil)
+            guard  snapshot.value  as? [String:Any] != nil else{
+                return
+            }
+            let va =  snapshot.value  as! [String:Any]
+            print(va["email"] as! String)
+            print(va["name"] as! String)
+            let userEmail = va["email"] as? String
+            let username = va["name"] as? String
+            
+            let alet = UIAlertController(title:self.favorites[indexPath.row].bookTitle , message: "you can contact \(username!)  by email ", preferredStyle: .actionSheet)
+            
+            alet.addAction(UIAlertAction(title: "Email \(String(describing: userEmail!))", style: .default, handler: { (callMe) in
+                if let url = URL(string: "mailto:\(String(describing: userEmail!))") {
+                    UIApplication.shared.open(url)
+                }
+            }))
+            
+            alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+                
+            }))
+            self.present(alet, animated: true, completion: nil)
+            }
     }
-    
     
     // MARK: - Table view data source
 

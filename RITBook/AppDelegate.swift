@@ -125,7 +125,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(favorites, forKey:"favorites")
         UserDefaults.standard.synchronize()
-    
+        
+        NotificationCenter.default.post(name: Notification.Name("FavoriteVC"), object: nil)
+
     }
     
     func getFavoriteParks() -> [String] {

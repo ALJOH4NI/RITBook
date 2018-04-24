@@ -114,6 +114,13 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     @IBAction func post(_ sender: Any) {
         let size = CGSize(width: 30, height: 30)
+        
+        if  (bookTitle.text?.isEmpty)! || bookDescription.text.isEmpty || (depTextField.text?.isEmpty)! || (priceTextField.text?.isEmpty)! {
+                    let alert = UIAlertController(title: "Worring!", message: "Please Enter Your Information", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default) {(action) in}
+                    alert.addAction(okAction)
+                    present(alert, animated: true, completion: nil)
+        } else {
         startAnimating(size, message: "Posting...")
         let department = depTextField.text
         let price = (priceTextField.text!  as NSString).doubleValue
@@ -156,16 +163,20 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                     let book =  bookUINavigationController.viewControllers[0] as! BookVC
 
                     tabbar.selectedIndex = 0
+                    NotificationCenter.default.post(name: Notification.Name("myCart"), object: nil)
                     book.reloadDta()
-
-                
+                    //clean the post fields
+                    self.bookTitle.text = ""
+                    self.bookDescription.text = "Please ass the book description"
+                    self.depTextField.text = ""
+                    self.priceTextField.text = ""
+                    self.imagePicked.image = UIImage(named: "addpic.png")
                 })
-                
-
              }
                 
             })
-            
+ 
+            }//else
         }
 
     

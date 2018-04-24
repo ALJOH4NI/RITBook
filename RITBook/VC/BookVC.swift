@@ -71,6 +71,8 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
         applicationDelegate.get_all_books(excludeCurrentUSer: true, complation: { books in
             
             self.books = books
+            self.booksfiltred = books
+            
             self.collectionView?.reloadData()
             self.stopAnimating()
             self.filteredBook(self.dropViewSelectedIndex)
@@ -93,12 +95,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
 
         self.view.addSubview(activityIndicatorView)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-      //  self.collectionView!.register(BookCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+       
         collectionView?.register(UINib(nibName: "bookCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         let cellWidth : CGFloat = collectionView!.frame.size.width-15
         let cellheight : CGFloat = 367
@@ -112,10 +109,11 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
         layout.minimumInteritemSpacing = 15 
         collectionView?.setCollectionViewLayout(layout, animated: true)
         collectionView?.reloadData()
-        // Do any additional setup after loading the view.
+        
     }
 
-
+    func loadData() {
+    }
 
     /*
     // MARK: - Navigation
@@ -161,24 +159,39 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-        let alet = UIAlertController(title:books[indexPath.row].bookTitle , message: "you can contact  by email ", preferredStyle: .actionSheet)
         
-        alet.addAction(UIAlertAction(title: "Email me", style: .default, handler: { (callMe) in
-            let email = "foo@bar.com"
-            if let url = URL(string: "mailto:\(email)") {
-                UIApplication.shared.open(url)
+        applicationDelegate.ref.child("users").child(books[indexPath.row].userID!).observeSingleEvent(of: .value) { (snapshot) in
+            
+            guard  snapshot.value  as? [String:Any] != nil else{
+                return
             }
-        }))
+            let va =  snapshot.value  as! [String:Any]
+            print(va["email"] as! String)
+            print(va["name"] as! String)
+            let userEmail = va["email"] as? String
+            let username = va["name"] as? String
+            
+            let alet = UIAlertController(title:self.books[indexPath.row].bookTitle , message: "you can contact \(username!)  by email ", preferredStyle: .actionSheet)
+            
+            alet.addAction(UIAlertAction(title: "Email \(String(describing: userEmail!))", style: .default, handler: { (callMe) in
+                if let url = URL(string: "mailto:\(String(describing: userEmail!))") {
+                    UIApplication.shared.open(url)
+                }
+            }))
+            
+            alet.addAction(UIAlertAction(title: "Add me as Favorite", style: .default, handler: { (fav) in
+                
+                applicationDelegate.addNewFavoritePark(self.books[indexPath.row].bookID!, sendData: false)
+            }))
+            alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+                
+            }))
+            self.present(alet, animated: true, completion: nil)
+            
+            
+         } // collectionView
         
-        alet.addAction(UIAlertAction(title: "add me as fav", style: .default, handler: { (fav) in
-            
-            applicationDelegate.addNewFavoritePark(self.books[indexPath.row].bookID!, sendData: false)
-        }))
-        alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
-            
-        }))
-        self.present(alet, animated: true, completion: nil)
+        
     }
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
