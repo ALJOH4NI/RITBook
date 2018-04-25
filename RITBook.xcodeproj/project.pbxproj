@@ -16,7 +16,7 @@
 		E227A67D208EEA07003910C9 /* picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227A67C208EEA07003910C9 /* picker.swift */; };
 		E227A67F208F05A8003910C9 /* aboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = E227A67E208F05A8003910C9 /* aboutMe.png */; };
 		E227A681208FF2F4003910C9 /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = E227A680208FF2F4003910C9 /* shopping-cart.png */; };
-		E22A6797208A95AF006ACDC5 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */; };
+		E22A6797208A95AF006ACDC5 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22A6796208A95AF006ACDC5 /* CartVC.swift */; };
 		E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B2D205B05F5007758E4 /* AppDelegate.swift */; };
 		E2680B33205B05F5007758E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2680B31205B05F5007758E4 /* Main.storyboard */; };
 		E2680B35205B05F5007758E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2680B34205B05F5007758E4 /* Assets.xcassets */; };
@@ -58,7 +58,7 @@
 		E227A67C208EEA07003910C9 /* picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picker.swift; sourceTree = "<group>"; };
 		E227A67E208F05A8003910C9 /* aboutMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutMe.png; sourceTree = "<group>"; };
 		E227A680208FF2F4003910C9 /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
-		E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		E22A6796208A95AF006ACDC5 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		E2680B2A205B05F5007758E4 /* RITBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RITBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2680B2D205B05F5007758E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2680B32205B05F5007758E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				8FB1DFB2208020D5001B951E /* Add_booksVC.swift */,
 				82E8D91F20816CC400120002 /* BookVC.swift */,
 				82E8D92120816D0600120002 /* BookCell.swift */,
-				E22A6796208A95AF006ACDC5 /* FavoriteVC.swift */,
+				E22A6796208A95AF006ACDC5 /* CartVC.swift */,
 				E2C7481D208AE53000AC79F9 /* MybooksVC.swift */,
 			);
 			path = VC;
@@ -382,7 +382,7 @@
 			files = (
 				E28BD1922081829900EAA321 /* userModel.swift in Sources */,
 				E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */,
-				E22A6797208A95AF006ACDC5 /* FavoriteVC.swift in Sources */,
+				E22A6797208A95AF006ACDC5 /* CartVC.swift in Sources */,
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
 				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,

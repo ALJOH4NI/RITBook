@@ -171,19 +171,26 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
             let userEmail = va["email"] as? String
             let username = va["name"] as? String
             
-            let alet = UIAlertController(title:self.books[indexPath.row].bookTitle , message: "you can contact \(username!)  by email ", preferredStyle: .actionSheet)
+            let alet = UIAlertController(title:self.books[indexPath.row].bookTitle , message: "You can contact \(username!) by email ", preferredStyle: .actionSheet)
             
-            alet.addAction(UIAlertAction(title: "Email \(String(describing: userEmail!))", style: .default, handler: { (callMe) in
+            alet.addAction(UIAlertAction(title: "Email \(String(describing: username!)) now", style: .default, handler: { (callMe) in
                 if let url = URL(string: "mailto:\(String(describing: userEmail!))") {
                     UIApplication.shared.open(url)
                 }
             }))
             
-            alet.addAction(UIAlertAction(title: "Add me as Favorite", style: .default, handler: { (fav) in
+            alet.addAction(UIAlertAction(title: "Add me to my cart ?", style: .default, handler: { (fav) in
+                applicationDelegate.add_new_book_in_cart(self.books[indexPath.row].bookID!, sendData: false)
                 
-                applicationDelegate.addNewFavoritePark(self.books[indexPath.row].bookID!, sendData: false)
+                // book added to the cart
+                let alert = UIAlertController(title: "Great!", message: "\(String(describing: self.books[indexPath.row].bookTitle!)) added to your cart !!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default) {(action) in
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                
             }))
-            alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+            alet.addAction(UIAlertAction(title: "Cancel =(", style: .cancel, handler: { (emailMe) in
                 
             }))
             self.present(alet, animated: true, completion: nil)

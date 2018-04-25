@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteVC: UITableViewController {
+class CartVC: UITableViewController {
 
     var favorites:[Book] = []
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class FavoriteVC: UITableViewController {
  
     
     @objc func setUp()  {
-        let userFavorite = applicationDelegate.getFavoriteParks()
+        let userFavorite = applicationDelegate.get_books_in_cart()
         favorites.removeAll()
         applicationDelegate.get_all_books(excludeCurrentUSer: false) { (books) in
             
@@ -119,7 +119,7 @@ class FavoriteVC: UITableViewController {
             // Delete the row from the data source
             let book = favorites[indexPath.row]
             favorites.remove(at: indexPath.row)
-            applicationDelegate.removeFavoritePark(book.bookID!)
+            applicationDelegate.remove_book_from_cart(book.bookID!)
             tableView.deleteRows(at: [indexPath], with: .fade)
             setUp()
         } else if editingStyle == .insert {

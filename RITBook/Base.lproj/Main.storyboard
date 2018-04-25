@@ -100,6 +100,7 @@
                                 <items>
                                     <navigationItem title="My profile" id="rOH-tB-FgK">
                                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ahE-Py-5ZO">
+                                            <color key="tintColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="Logout" destination="POe-uK-I0B" id="ZrI-9H-0s9"/>
                                             </connections>
@@ -135,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="703.20000000000005" y="2533.5832083958021"/>
         </scene>
-        <!--FavoriteVC-->
+        <!--CartVC-->
         <scene sceneID="dgv-sT-nom">
             <objects>
-                <tableViewController id="cLB-hA-eJi" customClass="FavoriteVC" customModule="RITBook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cLB-hA-eJi" customClass="CartVC" customModule="RITBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yhX-BS-ysb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,6 +203,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="1jp-Ce-EWD">
                         <barButtonItem key="rightBarButtonItem" title="•••" id="rhi-og-e91">
+                            <color key="tintColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="didPressDropFilter:" destination="LYY-HV-oVP" id="4Ga-Qe-Lrg"/>
                             </connections>
@@ -408,6 +410,7 @@
                                 <items>
                                     <navigationItem title="Upload Book" id="xTo-ak-asX">
                                         <barButtonItem key="rightBarButtonItem" title="Post" id="Y29-zQ-GJe">
+                                            <color key="tintColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="post:" destination="3Gg-IB-ulT" id="HAW-H3-f7l"/>
                                             </connections>

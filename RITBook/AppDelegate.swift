@@ -101,36 +101,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    func removeFavoritePark(_ parkName:String) {
+    func remove_book_from_cart(_ parkName:String) {
         
-        var favorites = getFavoriteParks()
+        var books_cart = get_books_in_cart()
         
-        if let index = favorites.index(where: {$0 == parkName}){
+        if let index = books_cart.index(where: {$0 == parkName}){
             
-            favorites.remove(at: index)
+            books_cart.remove(at: index)
             
         }
-        UserDefaults.standard.set(favorites, forKey:"favorites")
+        UserDefaults.standard.set(books_cart, forKey:"favorites")
         UserDefaults.standard.synchronize()
         
         
     }
-    func addNewFavoritePark(_ parkName:String, sendData:Bool)  {
+    func add_new_book_in_cart(_ parkName:String, sendData:Bool)  {
         
-        var favorites = getFavoriteParks()
+        var book_cart = get_books_in_cart()
         
-        if !favorites.contains(parkName) {
-            favorites.append(parkName)
+        if !book_cart.contains(parkName) {
+            book_cart.append(parkName)
         }
         
-        UserDefaults.standard.set(favorites, forKey:"favorites")
+        UserDefaults.standard.set(book_cart, forKey:"favorites")
         UserDefaults.standard.synchronize()
         
         NotificationCenter.default.post(name: Notification.Name("FavoriteVC"), object: nil)
 
     }
     
-    func getFavoriteParks() -> [String] {
+    func get_books_in_cart() -> [String] {
         guard UserDefaults.standard.array(forKey: "favorites") as? [String] != nil else {
             return []
         }

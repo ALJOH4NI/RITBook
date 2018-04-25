@@ -82,7 +82,7 @@ class MybooksVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let confimationTodelete = UIAlertController(title: "are sure you want to delete \(String(describing: self.myBooks[indexPath.row].bookTitle!))", message: " Book will be removed for ever", preferredStyle: .actionSheet)
+            let confimationTodelete = UIAlertController(title: "Are you sure want to delete \(String(describing: self.myBooks[indexPath.row].bookTitle!))", message: " After your remove your book, your book will not be seen by other users", preferredStyle: .actionSheet)
             confimationTodelete.addAction(UIAlertAction(title: "ok", style: .default, handler: { (OK) in
                 // Delete the row from the data source
                 applicationDelegate.ref.child("books/\(String(describing: self.myBooks[indexPath.row].bookID!))").removeValue()
