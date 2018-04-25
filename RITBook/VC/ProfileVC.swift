@@ -40,8 +40,8 @@ class ProfileVC: UIViewController {
     
     @IBAction func Logout() {
         
-        if applicationDelegate.getUserID().count != 0{
-            applicationDelegate.removeUserID()
+        if delegate.getUserID().count != 0{
+            delegate.removeUserID()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
             present(vc!, animated: true, completion: nil)
         }
@@ -51,8 +51,8 @@ class ProfileVC: UIViewController {
     
     
     func get_curent_user(){
-    print(applicationDelegate.getUserID())
-    applicationDelegate.ref.child("users").child(applicationDelegate.getUserID()).observeSingleEvent(of: .value) { (snapshot) in
+    print(delegate.getUserID())
+    delegate.ref.child("users").child(delegate.getUserID()).observeSingleEvent(of: .value) { (snapshot) in
         
         guard  snapshot.value  as? [String:Any] != nil else{
             return

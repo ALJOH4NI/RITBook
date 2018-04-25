@@ -10,7 +10,7 @@ import Firebase
 import UserNotifications
 import FirebaseInstanceID
 
-let applicationDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+let delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -72,28 +72,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func get_all_books(excludeCurrentUSer:Bool, complation:@escaping (([Book])-> Void)){
-        ref.child("books").observeSingleEvent(of: .value) { (snap) in
-            var books = [Book]()
-            for  book in snap.children{
-                let snap = book as! DataSnapshot
-                let value = snap.value as? [String:AnyObject]
-                let book = Book(
-                    bookID: snap.key,
-                    bookTitle: value!["book_title"]! as? String,
-                    bookDescription: value!["bookDescription"]! as? String,
-                    bookLink: value!["bookLink"]! as? String,
-                    bookPrice: value!["bookPrice"]! as? Double,
-                    departmentID: value!["dep_name"]! as? String,
-                    userID: value!["uid"]! as? String)
-                
-                if excludeCurrentUSer{
-                    if book.userID !=  self.getUserID(){
-                       books.append(book)
+        
+        var books = [Book]()
+
+        ref.child("books").observe(.childAdded) { (snap) in
+          
+            let value = snap.value as! NSDictionary
+            let book = Book(
+                bookID: snap.key,
+                bookTitle: value["book_title"]! as? String,
+                bookDescription: value["bookDescription"]! as? String,
+                bookLink: value["bookLink"]! as? String,
+                bookPrice: value["bookPrice"]! as? Double,
+                departmentID: value["dep_name"]! as? String,
+                userID: value["uid"]! as? String)
+            
+            if excludeCurrentUSer{
+                if book.userID !=  self.getUserID(){
+                    books.append(book)
+                }
+            }else{
+                if !books.contains(where: { (boook) -> Bool in
+                    if book.bookID == boook.bookID{
+                        return true
                     }
-                }else{
+                    return false
+                }){
                     books.append(book)
 
                 }
+                
             }
             complation(books)
         }

@@ -29,10 +29,10 @@ class CartVC: UITableViewController {
  
     
     @objc func setUp()  {
-        let userFavorite = applicationDelegate.get_books_in_cart()
-        favorites.removeAll()
-        applicationDelegate.get_all_books(excludeCurrentUSer: false) { (books) in
-            
+        let userFavorite = delegate.get_books_in_cart()
+        delegate.get_all_books(excludeCurrentUSer: false) { (books) in
+            self.favorites.removeAll()
+
             for id in userFavorite {
                 
                 if let index = books.index(where:{$0.bookID == id}){
@@ -51,7 +51,7 @@ class CartVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        applicationDelegate.ref.child("users").child(favorites[indexPath.row].userID!).observeSingleEvent(of: .value) { (snapshot) in
+        delegate.ref.child("users").child(favorites[indexPath.row].userID!).observeSingleEvent(of: .value) { (snapshot) in
             
             guard  snapshot.value  as? [String:Any] != nil else{
                 return
@@ -119,7 +119,7 @@ class CartVC: UITableViewController {
             // Delete the row from the data source
             let book = favorites[indexPath.row]
             favorites.remove(at: indexPath.row)
-            applicationDelegate.remove_book_from_cart(book.bookID!)
+            delegate.remove_book_from_cart(book.bookID!)
             tableView.deleteRows(at: [indexPath], with: .fade)
             setUp()
         } else if editingStyle == .insert {

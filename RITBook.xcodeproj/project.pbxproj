@@ -13,9 +13,10 @@
 		82E8D9242081703000120002 /* bookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E8D9232081703000120002 /* bookCell.xib */; };
 		8FB1DFB3208020D5001B951E /* Add_booksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1DFB2208020D5001B951E /* Add_booksVC.swift */; };
 		CB50AA0195D4C21F76B4B7BD /* Pods_RITBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */; };
-		E227A67D208EEA07003910C9 /* picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227A67C208EEA07003910C9 /* picker.swift */; };
+		E227A67D208EEA07003910C9 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227A67C208EEA07003910C9 /* extension.swift */; };
 		E227A67F208F05A8003910C9 /* aboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = E227A67E208F05A8003910C9 /* aboutMe.png */; };
 		E227A681208FF2F4003910C9 /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = E227A680208FF2F4003910C9 /* shopping-cart.png */; };
+		E227A6832090164D003910C9 /* CellTV.xib in Resources */ = {isa = PBXBuildFile; fileRef = E227A6822090164C003910C9 /* CellTV.xib */; };
 		E22A6797208A95AF006ACDC5 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22A6796208A95AF006ACDC5 /* CartVC.swift */; };
 		E2680B2E205B05F5007758E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B2D205B05F5007758E4 /* AppDelegate.swift */; };
 		E2680B33205B05F5007758E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2680B31205B05F5007758E4 /* Main.storyboard */; };
@@ -24,19 +25,13 @@
 		E2680B40205B0647007758E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2680B3F205B0647007758E4 /* GoogleService-Info.plist */; };
 		E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B43205B0E61007758E4 /* RegistrationVC.swift */; };
 		E2680B46205B193D007758E4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B45205B193D007758E4 /* LoginVC.swift */; };
-		E28BD178207F032600EAA321 /* icons8-delete-64.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD16A207F032400EAA321 /* icons8-delete-64.png */; };
 		E28BD179207F032600EAA321 /* icons8-settings-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD16B207F032400EAA321 /* icons8-settings-30.png */; };
-		E28BD17A207F032600EAA321 /* icons8-download-from-the-cloud-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD16C207F032400EAA321 /* icons8-download-from-the-cloud-30.png */; };
 		E28BD17B207F032600EAA321 /* placeholder-pserson.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD16D207F032400EAA321 /* placeholder-pserson.png */; };
 		E28BD17C207F032600EAA321 /* icons8-add-new-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD16E207F032400EAA321 /* icons8-add-new-30.png */; };
 		E28BD17D207F032600EAA321 /* icons8-more-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD16F207F032500EAA321 /* icons8-more-30.png */; };
 		E28BD17E207F032600EAA321 /* icons8-screenshot-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD170207F032500EAA321 /* icons8-screenshot-30.png */; };
-		E28BD17F207F032600EAA321 /* icons8-close-window-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD171207F032500EAA321 /* icons8-close-window-30.png */; };
-		E28BD180207F032600EAA321 /* icons8-login-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD172207F032500EAA321 /* icons8-login-30.png */; };
 		E28BD181207F032600EAA321 /* icons8-male-user-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD173207F032500EAA321 /* icons8-male-user-30.png */; };
 		E28BD182207F032600EAA321 /* icons8-course-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD174207F032600EAA321 /* icons8-course-30.png */; };
-		E28BD183207F032600EAA321 /* icons8-password-32.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD175207F032600EAA321 /* icons8-password-32.png */; };
-		E28BD184207F032600EAA321 /* icons8-secured-letter-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD176207F032600EAA321 /* icons8-secured-letter-30.png */; };
 		E28BD185207F032600EAA321 /* icons8-menu-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD177207F032600EAA321 /* icons8-menu-30.png */; };
 		E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD18A207FD13A00EAA321 /* ProfileVC.swift */; };
 		E28BD190208180D100EAA321 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD18F208180D100EAA321 /* BookModel.swift */; };
@@ -55,9 +50,10 @@
 		82E8D9232081703000120002 /* bookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookCell.xib; sourceTree = "<group>"; };
 		8FB1DFB2208020D5001B951E /* Add_booksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_booksVC.swift; sourceTree = "<group>"; };
 		979AABDD356EEB41F4808A26 /* Pods_RITBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RITBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E227A67C208EEA07003910C9 /* picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picker.swift; sourceTree = "<group>"; };
+		E227A67C208EEA07003910C9 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E227A67E208F05A8003910C9 /* aboutMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutMe.png; sourceTree = "<group>"; };
 		E227A680208FF2F4003910C9 /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
+		E227A6822090164C003910C9 /* CellTV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellTV.xib; sourceTree = "<group>"; };
 		E22A6796208A95AF006ACDC5 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		E2680B2A205B05F5007758E4 /* RITBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RITBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2680B2D205B05F5007758E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,19 +64,13 @@
 		E2680B3F205B0647007758E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2680B43205B0E61007758E4 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		E2680B45205B193D007758E4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		E28BD16A207F032400EAA321 /* icons8-delete-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-64.png"; sourceTree = "<group>"; };
 		E28BD16B207F032400EAA321 /* icons8-settings-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-30.png"; sourceTree = "<group>"; };
-		E28BD16C207F032400EAA321 /* icons8-download-from-the-cloud-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-download-from-the-cloud-30.png"; sourceTree = "<group>"; };
 		E28BD16D207F032400EAA321 /* placeholder-pserson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-pserson.png"; sourceTree = "<group>"; };
 		E28BD16E207F032400EAA321 /* icons8-add-new-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-add-new-30.png"; sourceTree = "<group>"; };
 		E28BD16F207F032500EAA321 /* icons8-more-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-more-30.png"; sourceTree = "<group>"; };
 		E28BD170207F032500EAA321 /* icons8-screenshot-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-screenshot-30.png"; sourceTree = "<group>"; };
-		E28BD171207F032500EAA321 /* icons8-close-window-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-close-window-30.png"; sourceTree = "<group>"; };
-		E28BD172207F032500EAA321 /* icons8-login-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-login-30.png"; sourceTree = "<group>"; };
 		E28BD173207F032500EAA321 /* icons8-male-user-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-male-user-30.png"; sourceTree = "<group>"; };
 		E28BD174207F032600EAA321 /* icons8-course-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-course-30.png"; sourceTree = "<group>"; };
-		E28BD175207F032600EAA321 /* icons8-password-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-password-32.png"; sourceTree = "<group>"; };
-		E28BD176207F032600EAA321 /* icons8-secured-letter-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-secured-letter-30.png"; sourceTree = "<group>"; };
 		E28BD177207F032600EAA321 /* icons8-menu-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-menu-30.png"; sourceTree = "<group>"; };
 		E28BD18A207FD13A00EAA321 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E28BD18F208180D100EAA321 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
@@ -122,7 +112,7 @@
 		E227A67B208EE9DD003910C9 /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				E227A67C208EEA07003910C9 /* picker.swift */,
+				E227A67C208EEA07003910C9 /* extension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -130,6 +120,7 @@
 		E22A6795208A93C5006ACDC5 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				E227A6822090164C003910C9 /* CellTV.xib */,
 				82E8D9232081703000120002 /* bookCell.xib */,
 			);
 			path = cells;
@@ -191,19 +182,13 @@
 			children = (
 				E28BD193208599EA00EAA321 /* place_holders */,
 				E28BD16E207F032400EAA321 /* icons8-add-new-30.png */,
-				E28BD171207F032500EAA321 /* icons8-close-window-30.png */,
 				E227A680208FF2F4003910C9 /* shopping-cart.png */,
 				E28BD174207F032600EAA321 /* icons8-course-30.png */,
-				E28BD16A207F032400EAA321 /* icons8-delete-64.png */,
 				E227A67E208F05A8003910C9 /* aboutMe.png */,
-				E28BD16C207F032400EAA321 /* icons8-download-from-the-cloud-30.png */,
-				E28BD172207F032500EAA321 /* icons8-login-30.png */,
 				E28BD173207F032500EAA321 /* icons8-male-user-30.png */,
 				E28BD177207F032600EAA321 /* icons8-menu-30.png */,
 				E28BD16F207F032500EAA321 /* icons8-more-30.png */,
-				E28BD175207F032600EAA321 /* icons8-password-32.png */,
 				E28BD170207F032500EAA321 /* icons8-screenshot-30.png */,
-				E28BD176207F032600EAA321 /* icons8-secured-letter-30.png */,
 				E28BD16B207F032400EAA321 /* icons8-settings-30.png */,
 				E28BD16D207F032400EAA321 /* placeholder-pserson.png */,
 			);
@@ -295,14 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28BD19720859A1400EAA321 /* addpic.png in Resources */,
-				E28BD17A207F032600EAA321 /* icons8-download-from-the-cloud-30.png in Resources */,
-				E28BD184207F032600EAA321 /* icons8-secured-letter-30.png in Resources */,
-				E28BD178207F032600EAA321 /* icons8-delete-64.png in Resources */,
 				E2680B38205B05F5007758E4 /* LaunchScreen.storyboard in Resources */,
+				E227A6832090164D003910C9 /* CellTV.xib in Resources */,
 				E28BD17D207F032600EAA321 /* icons8-more-30.png in Resources */,
 				E2680B40205B0647007758E4 /* GoogleService-Info.plist in Resources */,
-				E28BD17F207F032600EAA321 /* icons8-close-window-30.png in Resources */,
-				E28BD180207F032600EAA321 /* icons8-login-30.png in Resources */,
 				E28BD17B207F032600EAA321 /* placeholder-pserson.png in Resources */,
 				E28BD185207F032600EAA321 /* icons8-menu-30.png in Resources */,
 				E28BD19520859A0E00EAA321 /* addphoto.png in Resources */,
@@ -316,7 +297,6 @@
 				E2680B33205B05F5007758E4 /* Main.storyboard in Resources */,
 				E28BD17C207F032600EAA321 /* icons8-add-new-30.png in Resources */,
 				E28BD17E207F032600EAA321 /* icons8-screenshot-30.png in Resources */,
-				E28BD183207F032600EAA321 /* icons8-password-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +366,7 @@
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
 				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,
-				E227A67D208EEA07003910C9 /* picker.swift in Sources */,
+				E227A67D208EEA07003910C9 /* extension.swift in Sources */,
 				E2C7481E208AE53000AC79F9 /* MybooksVC.swift in Sources */,
 				82E8D92220816D0600120002 /* BookCell.swift in Sources */,
 				82B5441B2086B22C00E5185F /* DepartmentModel.swift in Sources */,

@@ -27,9 +27,9 @@ class MybooksVC: UITableViewController {
     
 
     @objc func getAllBooks(){
-        applicationDelegate.get_all_books(excludeCurrentUSer: false) { (book) in
+        delegate.get_all_books(excludeCurrentUSer: false) { (book) in
             self.myBooks = book.filter({ (book) -> Bool in
-                if book.userID == applicationDelegate.getUserID(){
+                if book.userID == delegate.getUserID(){
                     return true
                 }
                 return false
@@ -81,11 +81,10 @@ class MybooksVC: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             let confimationTodelete = UIAlertController(title: "Are you sure want to delete \(String(describing: self.myBooks[indexPath.row].bookTitle!))", message: " After your remove your book, your book will not be seen by other users", preferredStyle: .actionSheet)
             confimationTodelete.addAction(UIAlertAction(title: "ok", style: .default, handler: { (OK) in
                 // Delete the row from the data source
-                applicationDelegate.ref.child("books/\(String(describing: self.myBooks[indexPath.row].bookID!))").removeValue()
+                delegate.ref.child("books/\(String(describing: self.myBooks[indexPath.row].bookID!))").removeValue()
                 self.myBooks.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }))

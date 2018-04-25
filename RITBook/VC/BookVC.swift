@@ -52,8 +52,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     func setupRightBarDropDown() {
         rightBarDropDown.anchorView = DropFilter
         // You can also use localizationKeysDataSource instead. Check the docs.
-        rightBarDropDown.dataSource.append("All")
-
+        
         for abook in books{
             
             if !rightBarDropDown.dataSource.contains(where: {$0 ==  abook.departmentID!}){
@@ -68,7 +67,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
         let size = CGSize(width: 30, height: 30)
         
         startAnimating(size, message: "fetching ...", type: NVActivityIndicatorType.ballClipRotate)
-        applicationDelegate.get_all_books(excludeCurrentUSer: true, complation: { books in
+        delegate.get_all_books(excludeCurrentUSer: true, complation: { books in
             
             self.books = books
             self.booksfiltred = books
@@ -82,7 +81,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Books"
-        applicationDelegate.get_all_books(excludeCurrentUSer: true, complation: { books in
+        delegate.get_all_books(excludeCurrentUSer: true, complation: { books in
             
             self.books = books
             self.booksfiltred = books
@@ -109,7 +108,8 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
         layout.minimumInteritemSpacing = 15 
         collectionView?.setCollectionViewLayout(layout, animated: true)
         collectionView?.reloadData()
-        
+        rightBarDropDown.dataSource.append("All")
+
     }
 
     func loadData() {
@@ -160,7 +160,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        applicationDelegate.ref.child("users").child(books[indexPath.row].userID!).observeSingleEvent(of: .value) { (snapshot) in
+        delegate.ref.child("users").child(books[indexPath.row].userID!).observeSingleEvent(of: .value) { (snapshot) in
             
             guard  snapshot.value  as? [String:Any] != nil else{
                 return
@@ -180,7 +180,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
             }))
             
             alet.addAction(UIAlertAction(title: "Add me to my cart ?", style: .default, handler: { (fav) in
-                applicationDelegate.add_new_book_in_cart(self.books[indexPath.row].bookID!, sendData: false)
+                delegate.add_new_book_in_cart(self.books[indexPath.row].bookID!, sendData: false)
                 
                 // book added to the cart
                 let alert = UIAlertController(title: "Great!", message: "\(String(describing: self.books[indexPath.row].bookTitle!)) added to your cart !!", preferredStyle: .alert)

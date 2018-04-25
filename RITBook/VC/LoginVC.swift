@@ -41,8 +41,8 @@ class LoginVC: UIViewController {
     fileprivate func main_seque() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "Main")
-        applicationDelegate.window?.rootViewController = initialViewController
-        applicationDelegate.window?.makeKeyAndVisible()
+        delegate.window?.rootViewController = initialViewController
+        delegate.window?.makeKeyAndVisible()
 
     }
     
@@ -54,7 +54,7 @@ class LoginVC: UIViewController {
                 if user != nil {
                    // save it into defaultuser
                     if let userID =  user?.uid {
-                        applicationDelegate.setUserID(uID: userID)
+                        delegate.setUserID(uID: userID)
                     }
                     self.main_seque()
                 }else {
@@ -66,8 +66,8 @@ class LoginVC: UIViewController {
     
     
     func login_Useid(){
-        guard applicationDelegate.getUserID().count == 0 else {
-            print("He/She is good ", applicationDelegate.getUserID())
+        guard delegate.getUserID().count == 0 else {
+            print("He/She is good ", delegate.getUserID())
             self.main_seque()
             return
         }

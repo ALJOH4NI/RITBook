@@ -128,13 +128,13 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         let title = bookTitle.text
         let description = bookDescription.text
         var link = ""
-        let uid = applicationDelegate.getUserID()
+        let uid = delegate.getUserID()
         
         
  
         let data = UIImagePNGRepresentation(imagePicked.image!)
-        let imageName =  applicationDelegate.ref.childByAutoId().description().split(separator: "/").last
-        let imageRef = applicationDelegate.storageRef.child("bookImages/\(String(describing: imageName!)).jpg")
+        let imageName =  delegate.ref.childByAutoId().description().split(separator: "/").last
+        let imageRef = delegate.storageRef.child("bookImages/\(String(describing: imageName!)).jpg")
         
         imageRef.putData(data!, metadata: nil) { (me, err) in
             
@@ -150,7 +150,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                            "dep_name": department ?? "",
                            "uid": uid ] as [String : Any]
 
-                applicationDelegate.ref.child("books").childByAutoId().setValue(par, withCompletionBlock: { (_, _) in
+                delegate.ref.child("books").childByAutoId().setValue(par, withCompletionBlock: { (_, _) in
                     
                     NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
@@ -158,7 +158,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                     }
                     
                     
-                    let tabbar = applicationDelegate.window?.rootViewController as! UITabBarController
+                    let tabbar = delegate.window?.rootViewController as! UITabBarController
                     let bookUINavigationController =  tabbar.viewControllers![0] as! UINavigationController
                     let book =  bookUINavigationController.viewControllers[0] as! BookVC
 
@@ -220,28 +220,28 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
 
 }
 
-
-extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return applicationDelegate.depts.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return applicationDelegate.depts[row].name
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        guard applicationDelegate.depts.count != 0 else {
-            return
-        }
-       depTextField.text = applicationDelegate.depts[row].name
-    
-    }
-    
-    
-    
-}
+//
+//extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return applicationDelegate.depts.count
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return applicationDelegate.depts[row].name
+//    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        
+//        guard applicationDelegate.depts.count != 0 else {
+//            return
+//        }
+//       depTextField.text = applicationDelegate.depts[row].name
+//    
+//    }
+//    
+//    
+//    
+//}
