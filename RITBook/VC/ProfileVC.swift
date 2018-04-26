@@ -33,7 +33,7 @@ class ProfileVC: UIViewController {
         //profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
-        profileImage.layer.borderColor = UIColor.gray.cgColor
+        profileImage.layer.borderColor = UIColor.orange.cgColor
         profileImage.layer.borderWidth = 2
     }
     

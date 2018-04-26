@@ -13,28 +13,6 @@ import UserNotifications
 import Messages
 
 let delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        processNotification(notification)
-        completionHandler(.badge)
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        processNotification(response.notification)
-        completionHandler()
-    }
-    
-    private func processNotification(_ notif: UNNotification) {
-        let newPost = notif.request.content.userInfo["newPost"] as? String
-        if newPost == "1" {
-            print("did notify the user")
-        }
-    }
-}
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -61,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return true
         }
-      
-
         return true
     }
     

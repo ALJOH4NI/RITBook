@@ -6,6 +6,35 @@
 //
 
 import UIKit
+import Firebase
+import UserNotifications
+import FirebaseInstanceID
+import UserNotifications
+import Messages
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        processNotification(notification)
+        completionHandler(.badge)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        processNotification(response.notification)
+        completionHandler()
+    }
+    
+    private func processNotification(_ notif: UNNotification) {
+        let newPost = notif.request.content.userInfo["newPost"] as? String
+        if newPost == "1" {
+            print("did notify the user")
+        }
+    }
+}
+
+
+
+
 
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {

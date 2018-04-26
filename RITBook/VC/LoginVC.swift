@@ -71,6 +71,7 @@ class LoginVC: UIViewController,NVActivityIndicatorViewable {
                     //self.main_seque()
                 }else {
                     self.alter_for_wrong_login()
+                    self.stopAnimating()
                 }
             }
         } //else
