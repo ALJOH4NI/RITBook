@@ -42,7 +42,28 @@ extension Add_booksVC:UIPickerViewDelegate,UIPickerViewDataSource{
         depTextField.text = delegate.depts[row].name
         
     }
+}
+
+
+/*
+ Call self.hideKeyboard() in the viewDidLoad
+ 
+ than trying to use .resignFirstResponder()
+
+ */
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
     
-    
-    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }

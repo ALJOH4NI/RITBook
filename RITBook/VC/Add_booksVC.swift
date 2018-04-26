@@ -31,6 +31,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
       
         activityIndicatorView.center = self.view.center
         KeyboardAvoiding.padding = -25
+        
         KeyboardAvoiding.avoidingView = self.view
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(actionSheet(_:)))
@@ -116,7 +117,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
         let size = CGSize(width: 30, height: 30)
         
         if  (bookTitle.text?.isEmpty)! || bookDescription.text.isEmpty || (depTextField.text?.isEmpty)! || (priceTextField.text?.isEmpty)! {
-                    let alert = UIAlertController(title: "Worring!", message: "Please Enter Your Information", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Worring!", message: "Please enter the book information", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Ok", style: .default) {(action) in}
                     alert.addAction(okAction)
                     present(alert, animated: true, completion: nil)
@@ -153,7 +154,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                 delegate.ref.child("books").childByAutoId().setValue(par, withCompletionBlock: { (_, _) in
                     
                     NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
                         self.stopAnimating()
                     }
                     

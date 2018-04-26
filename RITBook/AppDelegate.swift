@@ -123,12 +123,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
-    func add_new_book_in_cart(_ parkName:String, sendData:Bool)  {
+    func add_new_book_in_cart(_ books:String, sendData:Bool)  {
         
         var book_cart = get_books_in_cart()
         
-        if !book_cart.contains(parkName) {
-            book_cart.append(parkName)
+        if !book_cart.contains(books) {
+            book_cart.append(books)
         }
         
         UserDefaults.standard.set(book_cart, forKey:"favorites")

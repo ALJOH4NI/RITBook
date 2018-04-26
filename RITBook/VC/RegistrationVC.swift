@@ -16,8 +16,7 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var name: UITextField!
     @IBAction func didPressRegister() {
         
-                email.resignFirstResponder()
-                password.resignFirstResponder()
+        
         
                 if ((email.text?.isEmpty)! || (password.text?.isEmpty)!){
                     
@@ -72,8 +71,7 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        email.resignFirstResponder()
-        password.resignFirstResponder()
+        self.hideKeyboard()
         didPressRegister()
         return true
     }

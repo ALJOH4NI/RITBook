@@ -8,15 +8,18 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import NVActivityIndicatorView
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController,NVActivityIndicatorViewable {
     var rootRef: DatabaseReference!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    lazy var activityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: 0, y: 100, width: 50, height: 50),
+                                                             type: NVActivityIndicatorType.ballBeat)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboard()
         login_Useid()
     }
     
@@ -50,13 +53,22 @@ class LoginVC: UIViewController {
         if email.text! == "" || password.text! == "" {
             self.alert_for_empty_field()
         } else {
+            let size = CGSize(width: 30, height: 30)
+            startAnimating(size, message: "Logging in ...")
             Auth.auth().signIn(withEmail: email.text!, password: password.text!) {(user,Error) in
                 if user != nil {
                    // save it into defaultuser
                     if let userID =  user?.uid {
                         delegate.setUserID(uID: userID)
+                        
+                        self.main_seque()
+                        
+                        NVActivityIndicatorPresenter.sharedInstance.setMessage("Logged in")
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                            self.stopAnimating()
+                        }
                     }
-                    self.main_seque()
+                    //self.main_seque()
                 }else {
                     self.alter_for_wrong_login()
                 }

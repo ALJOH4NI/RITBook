@@ -166,8 +166,8 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
                 return
             }
             let va =  snapshot.value  as! [String:Any]
-            print(va["email"] as! String)
-            print(va["name"] as! String)
+//            print(va["email"] as! String)
+//            print(va["name"] as! String)
             let userEmail = va["email"] as? String
             let username = va["name"] as? String
             
