@@ -38,6 +38,7 @@
 		E28BD19520859A0E00EAA321 /* addphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD19420859A0E00EAA321 /* addphoto.png */; };
 		E28BD19720859A1400EAA321 /* addpic.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BD19620859A1300EAA321 /* addpic.png */; };
 		E2C7481E208AE53000AC79F9 /* MybooksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C7481D208AE53000AC79F9 /* MybooksVC.swift */; };
+		E2CC2D902091883400AC0706 /* BookLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC2D8F2091883400AC0706 /* BookLayoutCell.swift */; };
 		E2E491852090D5E700316522 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2E491842090D5E600316522 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		E28BD19620859A1300EAA321 /* addpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addpic.png; sourceTree = "<group>"; };
 		E2C7481D208AE53000AC79F9 /* MybooksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MybooksVC.swift; sourceTree = "<group>"; };
 		E2CC2D8E20915C0000AC0706 /* RITBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RITBook.entitlements; sourceTree = "<group>"; };
+		E2CC2D8F2091883400AC0706 /* BookLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutCell.swift; sourceTree = "<group>"; };
 		E2E491842090D5E600316522 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			children = (
 				E227A6822090164C003910C9 /* CellTV.xib */,
 				82E8D9232081703000120002 /* bookCell.xib */,
+				E2CC2D8F2091883400AC0706 /* BookLayoutCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				E28BD18B207FD13A00EAA321 /* ProfileVC.swift in Sources */,
 				E22A6797208A95AF006ACDC5 /* CartVC.swift in Sources */,
 				E2680B44205B0E61007758E4 /* RegistrationVC.swift in Sources */,
+				E2CC2D902091883400AC0706 /* BookLayoutCell.swift in Sources */,
 				E28BD190208180D100EAA321 /* BookModel.swift in Sources */,
 				E2680B46205B193D007758E4 /* LoginVC.swift in Sources */,
 				E227A67D208EEA07003910C9 /* extension.swift in Sources */,

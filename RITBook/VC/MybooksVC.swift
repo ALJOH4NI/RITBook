@@ -13,6 +13,10 @@ class MybooksVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "CellTV", bundle: nil), forCellReuseIdentifier: "myBookCell")
+        tableView.rowHeight = 80
+        
         self.title = "My Books"
         getAllBooks()
         
@@ -55,20 +59,10 @@ class MybooksVC: UITableViewController {
 
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        cell.textLabel?.text = myBooks[indexPath.row].bookTitle
-        cell.detailTextLabel?.text = "$\(String(describing:  myBooks[indexPath.row].bookPrice!))"
         
-        let url = URL(string:myBooks[indexPath.row].bookLink!)
-        cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
-        
-//        cell.imageView?.layer.cornerRadius =  35
-//        cell.layer.masksToBounds = true
-//        cell.imageView?.clipsToBounds = true
-//        cell.layoutIfNeeded()
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myBookCell", for: indexPath) as! BookLayoutCell
+        cell.populate(book: myBooks[indexPath.row])
+      
         return cell
     }
 

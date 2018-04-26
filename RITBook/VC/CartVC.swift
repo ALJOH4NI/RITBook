@@ -12,7 +12,11 @@ class CartVC: UITableViewController {
     var favorites:[Book] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        tableView.register(UINib(nibName: "CellTV", bundle: nil), forCellReuseIdentifier: "myCartCell")
+        tableView.rowHeight = 80
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(setUp),
@@ -21,7 +25,6 @@ class CartVC: UITableViewController {
         
         self.title = "My cart"
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.tableView.rowHeight = 50
 
         self.setUp()
         
@@ -90,19 +93,16 @@ class CartVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCartCell", for: indexPath) as! BookLayoutCell
+        cell.populate(book: favorites[indexPath.row])
+        
         // Configure the cell...
-        cell.textLabel?.text = favorites[indexPath.row].bookTitle
-        cell.detailTextLabel?.text = favorites[indexPath.row].departmentID
+//        cell.textLabel?.text = favorites[indexPath.row].bookTitle
+//        cell.detailTextLabel?.text = favorites[indexPath.row].departmentID
+//
+//        let url = URL(string:favorites[indexPath.row].bookLink!)
+//        cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
 
-        let url = URL(string:favorites[indexPath.row].bookLink!)
-        cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named:"book_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
-//        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 30, height: 66)
-//        cell.imageView?.layer.cornerRadius =  35
-//        cell.layer.masksToBounds = true
-//        cell.imageView?.clipsToBounds = true
-//        cell.layoutIfNeeded()
         return cell
     }
 

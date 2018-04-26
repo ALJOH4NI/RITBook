@@ -12,40 +12,73 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="622" height="130"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookLayoutCell" customModule="RITBook" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="344" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSY-tb-RuW">
-                    <rect key="frame" x="20" y="15" width="100" height="100"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TSY-tb-RuW">
+                    <rect key="frame" x="15" y="15" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="O42-N5-WK1"/>
+                        <constraint firstAttribute="width" constant="70" id="aei-0i-5UQ"/>
+                        <constraint firstAttribute="height" constant="70" id="mSu-Of-6nN"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="35"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="BookborderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="BookborderColor">
+                            <color key="value" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVg-01-t2s">
-                    <rect key="frame" x="147" y="22" width="87" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVg-01-t2s">
+                    <rect key="frame" x="100" y="15" width="150" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book description Book description Book description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIq-cK-FVv">
-                    <rect key="frame" x="147" y="74" width="396" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book description Book description Book description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIq-cK-FVv">
+                    <rect key="frame" x="100" y="43" width="236" height="31.5"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$19.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZg-8Z-nvz">
-                    <rect key="frame" x="541" y="0.0" width="81" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$19.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZg-8Z-nvz">
+                    <rect key="frame" x="258" y="15" width="80" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="b4d-vH-Heh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oVg-01-t2s" firstAttribute="leading" secondItem="TSY-tb-RuW" secondAttribute="trailing" constant="15" id="7sp-I0-tU4"/>
+                <constraint firstItem="gIq-cK-FVv" firstAttribute="top" secondItem="oVg-01-t2s" secondAttribute="bottom" constant="10" id="8tX-m0-dBu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lZg-8Z-nvz" secondAttribute="trailing" constant="6" id="9ya-Ei-clK"/>
+                <constraint firstItem="oVg-01-t2s" firstAttribute="top" secondItem="TSY-tb-RuW" secondAttribute="top" id="HUW-HH-EuV"/>
+                <constraint firstItem="TSY-tb-RuW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PKo-UC-j5B"/>
+                <constraint firstItem="lZg-8Z-nvz" firstAttribute="leading" secondItem="oVg-01-t2s" secondAttribute="trailing" constant="8" id="RFw-yv-QLK"/>
+                <constraint firstItem="TSY-tb-RuW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="U5t-zW-r2x"/>
+                <constraint firstItem="lZg-8Z-nvz" firstAttribute="top" secondItem="oVg-01-t2s" secondAttribute="top" id="tu2-sL-6Fi"/>
+                <constraint firstItem="gIq-cK-FVv" firstAttribute="leading" secondItem="TSY-tb-RuW" secondAttribute="trailing" constant="15" id="yHe-vb-kwF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gIq-cK-FVv" secondAttribute="trailing" constant="8" id="z0O-lK-UyG"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="68" y="199"/>
+            <connections>
+                <outlet property="bookDesc" destination="gIq-cK-FVv" id="odq-fj-Heg"/>
+                <outlet property="bookImage" destination="TSY-tb-RuW" id="9o6-I9-w3e"/>
+                <outlet property="bookPrice" destination="lZg-8Z-nvz" id="fZi-ht-xQS"/>
+                <outlet property="bookTitle" destination="oVg-01-t2s" id="C5B-gL-iDw"/>
+            </connections>
+            <point key="canvasLocation" x="-71" y="184"/>
         </view>
     </objects>
 </document>

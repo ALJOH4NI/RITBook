@@ -6,7 +6,12 @@
 //
 
 import Foundation
-
+extension Double{
+    
+    func doubleString() -> String {
+        return String(self)
+    }
+}
 struct Book {
     let bookID: String?
     let bookTitle: String?

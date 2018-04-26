@@ -37,6 +37,25 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 
 extension UIView {
+    @IBInspectable var BookborderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+            
+        }
+    }
+    @IBInspectable var BookborderColor: UIColor {
+        get {
+            return .red
+        }
+        set {
+           layer.borderColor = newValue.cgColor
+            
+        }
+    }
+    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
