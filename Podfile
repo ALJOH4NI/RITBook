@@ -8,9 +8,10 @@ target 'RITBook' do
   	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
-    pod 'IHKeyboardAvoiding'
-    pod 'Kingfisher'
-    pod 'DropDown'
-    pod 'NVActivityIndicatorView'
+    	pod 'IHKeyboardAvoiding'
+    	pod 'Kingfisher'
+    	pod 'DropDown'
+    	pod 'NVActivityIndicatorView'
+	pod 'Firebase/Messaging'
 
  end

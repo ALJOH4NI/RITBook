@@ -9,8 +9,32 @@ import UIKit
 import Firebase
 import UserNotifications
 import FirebaseInstanceID
+import UserNotifications
+import Messages
 
 let delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        processNotification(notification)
+        completionHandler(.badge)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        processNotification(response.notification)
+        completionHandler()
+    }
+    
+    private func processNotification(_ notif: UNNotification) {
+        let newPost = notif.request.content.userInfo["newPost"] as? String
+        if newPost == "1" {
+            print("did notify the user")
+        }
+    }
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,8 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         get_all_depts()
-
-        print("getUserID",getUserID())
+        
+        /* Notification*/
+        self.registerForPushNotifications(application)
+        
         if getUserID().count == 0{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
@@ -36,13 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
       
-        
 
-   
         return true
     }
     
-    
+  
+    func registerForPushNotifications(_ application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        application.registerForRemoteNotifications()
+    }
    
     func get_all_depts(){
         ref = Database.database().reference()
