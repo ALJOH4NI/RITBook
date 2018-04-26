@@ -126,6 +126,7 @@
 				E227A6822090164C003910C9 /* CellTV.xib */,
 				82E8D9232081703000120002 /* bookCell.xib */,
 				E2CC2D8F2091883400AC0706 /* BookLayoutCell.swift */,
+				82E8D92120816D0600120002 /* BookCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -175,7 +176,6 @@
 				E28BD18A207FD13A00EAA321 /* ProfileVC.swift */,
 				8FB1DFB2208020D5001B951E /* Add_booksVC.swift */,
 				82E8D91F20816CC400120002 /* BookVC.swift */,
-				82E8D92120816D0600120002 /* BookCell.swift */,
 				E22A6796208A95AF006ACDC5 /* CartVC.swift */,
 				E2C7481D208AE53000AC79F9 /* MybooksVC.swift */,
 			);

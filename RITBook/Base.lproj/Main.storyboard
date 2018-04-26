@@ -60,7 +60,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ahmed Aljohani" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOC-oh-2tF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm a new user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOC-oh-2tF">
                                 <rect key="frame" x="23" y="297" width="329" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -81,6 +81,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Delete" id="IUo-Ru-UOG">
                                             <color key="tintColor" red="0.8243377221" green="0.48262423459999998" blue="0.0060039383979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="deleteUserAccount:" destination="POe-uK-I0B" id="ZAI-IB-qqa"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -249,7 +252,7 @@
         <!--RegistrationVC-->
         <scene sceneID="Cgc-N7-wWd">
             <objects>
-                <viewController id="Mjy-uT-YJw" customClass="RegistrationVC" customModule="RITBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registration" id="Mjy-uT-YJw" customClass="RegistrationVC" customModule="RITBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emQ-Fm-u1h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -338,7 +341,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yjj-I8-2Bf">
                                 <rect key="frame" x="10" y="299" width="355" height="46"/>
-                                <color key="backgroundColor" red="0.87453263998031616" green="0.87451624870300293" blue="0.87452733516693115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="6Tf-E0-JU0"/>
                                 </constraints>
@@ -384,7 +387,7 @@
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Book discription: Ex: used book .. great book " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DIH-zF-8PF">
                                 <rect key="frame" x="10" y="351" width="355" height="125"/>
-                                <color key="backgroundColor" red="0.87453263998031616" green="0.87451624870300293" blue="0.87452733516693115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                 <userDefinedRuntimeAttributes>
@@ -395,7 +398,7 @@
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Department" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYM-HZ-Bel">
                                 <rect key="frame" x="10" y="484" width="355" height="46"/>
-                                <color key="backgroundColor" red="0.87453263998031616" green="0.87451624870300293" blue="0.87452733516693115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="G8M-P8-Pyc"/>
                                 </constraints>
@@ -410,7 +413,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  $ 19.99 (Price)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzZ-Xh-R47">
                                 <rect key="frame" x="10" y="538" width="355" height="46"/>
-                                <color key="backgroundColor" red="0.87453263998031616" green="0.87451624870300293" blue="0.87452733516693115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="UVf-3v-gnv"/>
                                 </constraints>
@@ -567,6 +570,6 @@
         <image name="shopping-cart.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Li-4I-TJ1"/>
+        <segue reference="0LI-iY-QSy"/>
     </inferredMetricsTieBreakers>
 </document>

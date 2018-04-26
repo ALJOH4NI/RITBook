@@ -12,9 +12,7 @@ import FirebaseAuth
 class ProfileVC: UIViewController {
         var ref: DatabaseReference!
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var username: UILabel!
-    
     @IBOutlet weak var userEmail: UILabel!
     
     
@@ -26,11 +24,39 @@ class ProfileVC: UIViewController {
     }
 
     
+    @IBAction func deleteUserAccount(_ sender: Any) {
+        
+        let alet = UIAlertController(title: "Worring !! " , message: "You will not be able to login again !! ", preferredStyle: .actionSheet)
+        
+        alet.addAction(UIAlertAction(title: "Delete Account", style: .destructive, handler: { (x) in
+            
+                let user = Auth.auth().currentUser
+                user?.delete(completion: { (error) in
+                if let error = error {
+                    print("not deleted \(error)")
+                } else {
+                  delegate.removeUserID()
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "registration")
+                  self.present(vc!, animated: true, completion: nil)
+                }
+            })
+            
+        }))
+        
+        alet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (emailMe) in
+            
+        }))
+        self.present(alet, animated: true, completion: nil)
+       
+
+    }
+
+   
+    
+    
     
     // to make the profile image rounded
     func imageRounded(){
-        //profileImage.layer.cornerRadius = 20
-        //profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderColor = UIColor.orange.cgColor
@@ -53,7 +79,6 @@ class ProfileVC: UIViewController {
     func get_curent_user(){
     print(delegate.getUserID())
     delegate.ref.child("users").child(delegate.getUserID()).observeSingleEvent(of: .value) { (snapshot) in
-        
         guard  snapshot.value  as? [String:Any] != nil else{
             return
         }

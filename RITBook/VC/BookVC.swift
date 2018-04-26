@@ -190,7 +190,7 @@ class BookVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, NV
                 self.present(alert, animated: true, completion: nil)
                 
             }))
-            alet.addAction(UIAlertAction(title: "Cancel =(", style: .cancel, handler: { (emailMe) in
+            alet.addAction(UIAlertAction(title: "Cancel =(", style: .destructive, handler: { (emailMe) in
                 
             }))
             self.present(alet, animated: true, completion: nil)
