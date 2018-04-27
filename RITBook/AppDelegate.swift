@@ -10,6 +10,7 @@ import Firebase
 import UserNotifications
 import FirebaseInstanceID
 import UserNotifications
+import FirebaseMessaging
 import Messages
 
 let delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+
         get_all_depts()
         
         /* Notification*/
@@ -54,6 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
     }
    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
     func get_all_depts(){
         ref = Database.database().reference()
         ref.child("depts").observeSingleEvent(of: .value) { (snap) in

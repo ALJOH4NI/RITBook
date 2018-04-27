@@ -9,10 +9,11 @@ import UIKit
 import Firebase
 import UserNotifications
 import FirebaseInstanceID
+import FirebaseMessaging
 import UserNotifications
 import Messages
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         processNotification(notification)
@@ -29,6 +30,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if newPost == "1" {
             print("did notify the user")
         }
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        Messaging.messaging().subscribe(toTopic: "books")
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print(messaging)
     }
 }
 

@@ -9,6 +9,7 @@ import UIKit
 import IHKeyboardAvoiding
 import Firebase
 import FirebaseAuth
+import FirebaseMessaging
 import NVActivityIndicatorView
 
 class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,NVActivityIndicatorViewable {
@@ -114,6 +115,7 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
     
     
     @IBAction func post(_ sender: Any) {
+        
         let size = CGSize(width: 30, height: 30)
         
         if  (bookTitle.text?.isEmpty)! || bookDescription.text.isEmpty || (depTextField.text?.isEmpty)! || (priceTextField.text?.isEmpty)! {
@@ -177,7 +179,10 @@ class Add_booksVC: UIViewController,UIImagePickerControllerDelegate,UINavigation
                 
             })
  
-            }//else
+            }
+            let message = "my message"
+            Messaging.messaging().sendMessage(["body":message], to: "books", withMessageID: "01", timeToLive: 100)
+            
         }
 
     
